@@ -135,6 +135,32 @@ def view_expenses(expense_file_path):
         print(f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, €{expense.amount:.2f}")
     print("-" * 50)
 
+def delete_expense(expense_file_path):
+    """
+    Prompt the user to select and delete an expense from the CSV file.
+    """
+    expenses = read_expenses_from_file(expense_file_path)
+    if not expenses:
+        print("No expenses to delete.")
+        return
+
+    print("Select an expense to delete:")
+    for i, expense in enumerate(expenses):
+        print(f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, €{expense.amount:.2f}")
+    
+    try:
+        index_to_delete = int(input("Enter the number of the expense to delete: ")) - 1
+        if 0 <= index_to_delete < len(expenses):
+            expenses.pop(index_to_delete)
+            write_expenses_to_file(expenses, expense_file_path)
+            print("Expense deleted successfully.")
+        else:
+            print("Invalid number. Please try again.")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+
+
+
 def read_expenses_from_file(expense_file_path):
     """
     Read expenses from a CSV file and return them as a list of Expense objects.
