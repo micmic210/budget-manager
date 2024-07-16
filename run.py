@@ -86,7 +86,26 @@ def get_user_expense():
                 print("Invalid category. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a valid category number.")
-        
+
+    description = input("Enter the expense description: ").strip()
+    if not description:
+        print("Expense description cannot be empty. Please try again.")
+        return get_user_expense()
+    
+    try: 
+        expense_amount = float(input("Enter the expense amount (€): "))
+        if expense_amount <= 0:
+            print("Expense amount must be greater than zero. Please try again.")
+            return get_user_expense()
+    except ValueError:
+        print("Invalid input. Please enter a valid amount.")
+        return get_user_expense()
+    
+    new_expense = Expense(
+        date=expense.date, category=selected_category, description=description,
+        amount=expense_amount
+    )
+    return new_expense   
 
 
 if __name__ == "__main__":
