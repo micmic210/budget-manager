@@ -107,6 +107,17 @@ def get_user_expense():
     )
     return new_expense   
 
+def save_expense_to_file(expense: Expense, expense_file_path):
+    """
+    Save the input expense to a CSV file.
+    """
+    print("Saving your expense...")
+    try: 
+        with open(expense_file_path, "a") as f:
+            f.write(f"{expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, {expense.amount:.2f}\n")
+        print("Expense saved successfully!")
+    except IOError as e:
+        print(f"Error saving expense: {e}")
 
 if __name__ == "__main__":
     main()
