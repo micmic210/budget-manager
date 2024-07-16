@@ -159,6 +159,33 @@ def delete_expense(expense_file_path):
     except ValueError:
         print("Invalid input. Please enter a valid number.")
 
+def summarize_expenses(expense_file_path, budget):
+    """
+    Summarize expenses by category and display the total and remaining budget.
+    """
+    print("Summarizing your expenses...")
+    expenses = read_expenses_from_file(expense_file_path)
+    if not expenses:
+        print("No expenses found.")
+        return
+
+    amount_by_category = {}
+    for expense in expenses:
+        key = expense.category
+        if key in amount_by_category:
+            amount_by_category[key] += expense.amount
+        else: 
+            amount_by_category[key] = expense.amount
+    
+    print("\nExpenses By Category:")
+    for key, amount in amount_by_category.items():
+        print(f"  {key}: €{amount:.2f}")
+
+    total_spent = sum([x.amount for x in expenses])
+    print(f"\nTotal Spent: €{total_spent:.2f}")
+
+    remaining_budget = budget - total_spent
+    print(f"Remaining Budget: €{remaining_budget:.2f}")
 
 
 def read_expenses_from_file(expense_file_path):
