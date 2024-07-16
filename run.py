@@ -14,8 +14,8 @@ def main():
 
     print("\n" + "-"*50)
     print("\nWelcome to Budget Manager!")
-    expense_file_path = "expense.csv" # Path to the CSV file storing expenses
-    budget = 2000 # Budget limit in Euro
+    expense_file_path = "expense.csv"  # Path to the CSV file storing expenses
+    budget = 2000  # Budget limit in Euro
 
     while True: 
         print("\n" + "-"*50)
@@ -28,7 +28,7 @@ def main():
         print("\n" + "-"*50)
 
         try:
-            choice = int(input ("Please select an option (1-5): "))
+            choice = int(input("Please select an option (1-5): "))
             if choice == 1: 
                 expense = get_user_expense()
                 save_expense_to_file(expense, expense_file_path)
@@ -114,8 +114,9 @@ def save_expense_to_file(expense: Expense, expense_file_path):
     """
     print("Saving your expense...")
     try: 
-        with open(expense_file_path, "a") as f:
-            f.write(f"{expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, {expense.amount:.2f}\n")
+        with open(expense_file_path, "a", newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow([expense.date.strftime('%d-%m-%Y'), expense.category, expense.description, f"{expense.amount:.2f}"])
         print("Expense saved successfully!")
     except IOError as e:
         print(f"Error saving expense: {e}")
@@ -194,11 +195,11 @@ def read_expenses_from_file(expense_file_path):
     """
     expenses = []
     try: 
-        with open(expense_file_path, "r") as f:
-            lines = f.readlines()
-            for line in lines:
-                if line.strip(): #Add this to avoid processing empty lines
-                    date, category, description, expense_amount = line.strip().split(", ")
+        with open(expense_file_path, "r", newline='') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                if row:  # Add this to avoid processing empty lines
+                    date, category, description, expense_amount = row
                     expense = Expense(
                         date=datetime.datetime.strptime(date, "%d-%m-%Y").date(),
                         category=category,
@@ -207,7 +208,7 @@ def read_expenses_from_file(expense_file_path):
                     )
                     expenses.append(expense)
     except IOError as e:
-        print(f"Error processing line: {line}. Error: {0}")
+        print(f"Error reading expenses: {e}")
     return expenses
 
 def write_expenses_to_file(expenses, expense_file_path):
@@ -215,10 +216,11 @@ def write_expenses_to_file(expenses, expense_file_path):
     Write a list of expenses to a CSV file.
     """
     try: 
-        with open(expense_file_path, "w") as f:
+        with open(expense_file_path, "w", newline='') as f:
+            writer = csv.writer(f)
             for expense in expenses:
-                f.write(f"{expense.date.strftime('%d-%m-%Y')},{expense.category},{expense.description},{expense.amount:.2f}\n")
-                print("Expenses saved successfully.")
+                writer.writerow([expense.date.strftime('%d-%m-%Y'), expense.category, expense.description, f"{expense.amount:.2f}"])
+        print("Expenses saved successfully.")
     except IOError as e:
         print(f"Error writing expenses: {e}")
 
