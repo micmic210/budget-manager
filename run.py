@@ -7,7 +7,7 @@ import datetime
 
 def main():
     """
-    Main function to run the Budget Manager application. It provides a menu
+    Main function to run the Budget Manager application. Provide a menu
     for the user to add, view, delete, and summarize expenses. 
     """
 
@@ -45,6 +45,48 @@ def main():
         except ValueError:
             print("Invalid input. Please enter a number.")
 
+def get_user_expense():
+    """
+    Prompt the user to enter details for a new expense.
+    Returns expense of newly added.
+    """
+
+    print("Let's add a new expense!")
+    date_input = input("Enter the date (DD-MM-YYYY): ").strip()
+    try:
+        expense_date = datetime.datetime.strptime(date_input, "%d-%m-%Y").date()
+    except ValueError:
+        print("Invalid date format. Please enter a valid date in DD-MM-YYYY format.")
+        return get_user_expense()
+    
+    expense_categories = [
+        "Housing",
+        "Utilities",
+        "Groceries",
+        "Transportation",
+        "Entertainment",
+        "Subscriptions",
+        "Personal Hygiene",
+        "Miscellaneous",
+    ]
+
+    while True:
+        try:
+            print("Select a category for your expense: ")
+            for i, category_name in enumerate(expense_categories):
+                print(f" {i + 1}. {category_name}")
+            
+            value_range = f"[1 - {len(expense_categories)}]"
+            selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
+
+            if selected_index in range(len(expense_categories)):
+                selected_category = expense_categories[selected_index]
+                break
+            else: 
+                print("Invalid category. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid category number.")
+        
 
 
 if __name__ == "__main__":
