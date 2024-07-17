@@ -171,7 +171,7 @@ def delete_expense(expenses):
     print(" Select an expense to delete:")
     for i, expense in enumerate(expenses):
         print(
-            f"\n{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
+            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
             f"{expense.category}, {expense.description}, "
             f"€{expense.amount:.2f}"
         )
