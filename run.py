@@ -82,7 +82,7 @@ def get_user_expense():
         "Transportation",
         "Entertainment",
         "Subscriptions",
-        "Personal Hygiene",
+        "Home Care",
         "Miscellaneous",
     ]
 
