@@ -1,5 +1,5 @@
 """
-Budget Master application for managing expenses.
+Budget Mangager application for managing expenses.
 """
 
 
@@ -14,7 +14,7 @@ def main():
     """
     # Display welcome message
     print("\n" + "-" * 50)
-    print("\nWelcome to Budget Master!")
+    print("\nWelcome to Budget Manager!")
     budget = 2000  # Budget limit in Euro
     expenses = []  # List to store expenses
 
