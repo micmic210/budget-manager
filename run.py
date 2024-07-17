@@ -171,7 +171,7 @@ def delete_expense(expenses):
     print(" Select an expense to delete:")
     for i, expense in enumerate(expenses):
         print(
-            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
+            f"\n{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
             f"{expense.category}, {expense.description}, "
             f"€{expense.amount:.2f}"
         )
@@ -179,7 +179,7 @@ def delete_expense(expenses):
     try:
         # Get the index of the expense to delete and remove it from the list
         index_to_delete = (
-            int(input(" Enter the number of the expense to delete: ")) - 1
+            int(input("\n Enter the number of the expense to delete: ")) - 1
         )
         if 0 <= index_to_delete < len(expenses):
             expenses.pop(index_to_delete)
