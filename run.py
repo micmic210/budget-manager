@@ -1,22 +1,21 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+"""
+Budget Master application for managing expenses. 
+"""
 
 from expense import Expense
 import datetime
-import csv
 
 
 def main():
     """
-    Main function to run the Budget Manager application. Provide a menu
-    for the user to add, view, delete, and summarize expenses.
+    Main function to run the Budget Manager application. Provide a 
+    menu for the user to add, view, delete, and summarize expenses.
     """
 
     print("\n" + "-" * 50)
-    print("\nWelcome to Budget Manager!")
-    expense_file_path = "expense.csv"  # Path to the CSV file storing expenses
+    print("\nWelcome to Budget Master!")
     budget = 2000  # Budget limit in Euro
+    expenses = []  # List to store expenses
 
     while True:
         print("\n" + "-" * 50)
@@ -32,13 +31,13 @@ def main():
             choice = int(input("Please select an option (1-5): "))
             if choice == 1:
                 expense = get_user_expense()
-                save_expense_to_file(expense, expense_file_path)
+                expenses.append(expense)
             elif choice == 2:
-                view_expenses(expense_file_path)
+                view_expenses(expenses)
             elif choice == 3:
-                delete_expense(expense_file_path)
+                delete_expense(expenses)
             elif choice == 4:
-                summarize_expenses(expense_file_path, budget)
+                summarize_expenses(expenses, budget)
             elif choice == 5:
                 print("Thank you for using Budget Manager. Goodbye!")
                 break
@@ -57,9 +56,7 @@ def get_user_expense():
     print("Let's add a new expense!")
     date_input = input("Enter the date (DD-MM-YYYY): ").strip()
     try:
-        expense_date = datetime.datetime.strptime(
-            date_input, "%d-%m-%Y"
-        ).date()
+        expense_date = datetime.datetime.strptime(date_input, "%d-%m-%Y").date()
     except ValueError:
         print(
             "Invalid date format. Please enter a valid date in DD-MM-YYYY format."
@@ -91,8 +88,7 @@ def get_user_expense():
             if selected_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_index]
                 break
-            else:
-                print("Invalid category. Please try again.")
+            print("Invalid category. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a valid category number.")
 
@@ -105,7 +101,8 @@ def get_user_expense():
         expense_amount = float(input("Enter the expense amount (€): "))
         if expense_amount <= 0:
             print(
-                "Expense amount must be greater than zero. Please try again."
+                "Expense amount must be greater than zero. "
+                "Please try again."
             )
             return get_user_expense()
     except ValueError:
@@ -121,33 +118,11 @@ def get_user_expense():
     return new_expense
 
 
-def save_expense_to_file(expense: Expense, expense_file_path):
+def view_expenses(expenses):
     """
-    Save the input expense to a CSV file.
-    """
-    print("Saving your expense...")
-    try:
-        with open(expense_file_path, "a", newline="") as f:
-            writer = csv.writer(f)
-            writer.writerow(
-                [
-                    expense.date.strftime("%d-%m-%Y"),
-                    expense.category,
-                    expense.description,
-                    f"{expense.amount:.2f}",
-                ]
-            )
-        print("Expense saved successfully!")
-    except IOError as e:
-        print(f"Error saving expense: {e}")
-
-
-def view_expenses(expense_file_path):
-    """
-    Read expenses from a CSV file and displays them.
+    Displays the list of expenses.
     """
     print("Viewing expenses...")
-    expenses = read_expenses_from_file(expense_file_path)
     if not expenses:
         print("No expenses found.")
         return
@@ -155,24 +130,27 @@ def view_expenses(expense_file_path):
     print("\n" + "-" * 50)
     for i, expense in enumerate(expenses):
         print(
-            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, €{expense.amount:.2f}"
+            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
+            f"{expense.category}, {expense.description}, "
+            f"€{expense.amount:.2f}"
         )
     print("-" * 50)
 
 
-def delete_expense(expense_file_path):
+def delete_expense(expenses):
     """
-    Prompt the user to select and delete an expense from the CSV file.
+    Prompt the user to select and delete an expense from the list.
     """
-    expenses = read_expenses_from_file(expense_file_path)
     if not expenses:
         print("No expenses to delete.")
-        return
+        return expenses
 
     print("Select an expense to delete:")
     for i, expense in enumerate(expenses):
         print(
-            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, {expense.category}, {expense.description}, €{expense.amount:.2f}"
+            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
+            f"{expense.category}, {expense.description}, "
+            f"€{expense.amount:.2f}"
         )
 
     try:
@@ -181,20 +159,19 @@ def delete_expense(expense_file_path):
         )
         if 0 <= index_to_delete < len(expenses):
             expenses.pop(index_to_delete)
-            write_expenses_to_file(expenses, expense_file_path)
             print("Expense deleted successfully.")
         else:
             print("Invalid number. Please try again.")
     except ValueError:
         print("Invalid input. Please enter a valid number.")
+    return expenses
 
 
-def summarize_expenses(expense_file_path, budget):
+def summarize_expenses(expenses, budget):
     """
     Summarize expenses by category and display the total and remaining budget.
     """
     print("Summarizing your expenses...")
-    expenses = read_expenses_from_file(expense_file_path)
     if not expenses:
         print("No expenses found.")
         return
@@ -218,51 +195,6 @@ def summarize_expenses(expense_file_path, budget):
     print(f"Remaining Budget: €{remaining_budget:.2f}")
 
 
-def read_expenses_from_file(expense_file_path):
-    """
-    Read expenses from a CSV file and return them as a list of Expense objects.
-    """
-    expenses = []
-    try:
-        with open(expense_file_path, "r", newline="") as f:
-            reader = csv.reader(f)
-            for row in reader:
-                if row:  # Add this to avoid processing empty lines
-                    date, category, description, expense_amount = row
-                    expense = Expense(
-                        date=datetime.datetime.strptime(
-                            date, "%d-%m-%Y"
-                        ).date(),
-                        category=category,
-                        description=description,
-                        amount=float(expense_amount),
-                    )
-                    expenses.append(expense)
-    except IOError as e:
-        print(f"Error reading expenses: {e}")
-    return expenses
-
-
-def write_expenses_to_file(expenses, expense_file_path):
-    """
-    Write a list of expenses to a CSV file.
-    """
-    try:
-        with open(expense_file_path, "w", newline="") as f:
-            writer = csv.writer(f)
-            for expense in expenses:
-                writer.writerow(
-                    [
-                        expense.date.strftime("%d-%m-%Y"),
-                        expense.category,
-                        expense.description,
-                        f"{expense.amount:.2f}",
-                    ]
-                )
-        print("Expenses saved successfully.")
-    except IOError as e:
-        print(f"Error writing expenses: {e}")
-
-
 if __name__ == "__main__":
     main()
+
