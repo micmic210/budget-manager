@@ -76,14 +76,14 @@ def get_user_expense():
 
     # List of expense categories
     expense_categories = [
-        "  Housing",
-        "  Utilities",
-        "  Groceries",
-        "  Transportation",
-        "  Entertainment",
-        "  Subscriptions",
-        "  Personal Hygiene",
-        "  Miscellaneous",
+        "Housing",
+        "Utilities",
+        "Groceries",
+        "Transportation",
+        "Entertainment",
+        "Subscriptions",
+        "Personal Hygiene",
+        "Miscellaneous",
     ]
 
     # Prompt user to select a category
