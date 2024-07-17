@@ -21,12 +21,12 @@ def main():
     # Main loop to display menu and handle user choices
     while True:
         print("\n" + "-" * 50)
-        print("  Main Menu:")
-        print("  1. Add a New Expense")
-        print("  2. View Expenses")
-        print("  3. Delete an Expense")
-        print("  4. Summarize Expenses")
-        print("  5. Exit")
+        print("    Main Menu:")
+        print("    1. Add a New Expense")
+        print("    2. View Expenses")
+        print("    3. Delete an Expense")
+        print("    4. Summarize Expenses")
+        print("    5. Exit")
         print("\n" + "-" * 50)
 
         try:
@@ -171,9 +171,9 @@ def delete_expense(expenses):
     print(" Select an expense to delete:")
     for i, expense in enumerate(expenses):
         print(
-            f" {i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
-            f" {expense.category}, {expense.description}, "
-            f" €{expense.amount:.2f}"
+            f"{i + 1}. {expense.date.strftime('%d-%m-%Y')}, "
+            f"{expense.category}, {expense.description}, "
+            f"€{expense.amount:.2f}"
         )
 
     try:
@@ -215,7 +215,7 @@ def summarize_expenses(expenses, budget):
     # Display expense summary by category
     print("\n Expenses By Category:")
     for key, amount in amount_by_category.items():
-        print(f"  {key}: €{amount:.2f}")
+        print(f" {key}: €{amount:.2f}")
 
     # Calculate and display total spent and remaining budget
     total_spent = sum(x.amount for x in expenses)
