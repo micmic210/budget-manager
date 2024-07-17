@@ -12,12 +12,13 @@ def main():
     Main function to run the Budget Manager application. Provide a
     menu for the user to add, view, delete, and summarize expenses.
     """
-
+    # Display welcome message
     print("\n" + "-" * 50)
     print("\nWelcome to Budget Master!")
     budget = 2000  # Budget limit in Euro
     expenses = []  # List to store expenses
 
+    # Main loop to display menu and handle user choices
     while True:
         print("\n" + "-" * 50)
         print("Main Menu:")
@@ -29,6 +30,7 @@ def main():
         print("\n" + "-" * 50)
 
         try:
+            # Get user choice and call the corresponding function
             choice = int(input("Please select an option (1-5): "))
             if choice == 1:
                 expense = get_user_expense()
@@ -40,11 +42,14 @@ def main():
             elif choice == 4:
                 summarize_expenses(expenses, budget)
             elif choice == 5:
+                # Exit the program
                 print("Thank you for using Budget Manager. Goodbye!")
                 break
             else:
+                # Handle invalid choices
                 print("Invalid choice. Please enter a number between 1 and 5.")
         except ValueError:
+            # Handle invalid input (non-numeric)
             print("Invalid input. Please enter a number.")
 
 
@@ -53,20 +58,23 @@ def get_user_expense():
     Prompt the user to enter details for a new expense.
     Returns expense of newly added.
     """
-
+    # Prompt user for expense details
     print("Let's add a new expense!")
     date_input = input("Enter the date (DD-MM-YYYY): ").strip()
     try:
+        # Parse date input
         expense_date = datetime.datetime.strptime(
             date_input, "%d-%m-%Y"
         ).date()
     except ValueError:
+        # Handle invalid date format
         print(
             "Invalid date format. Please enter a valid date in "
             "DD-MM-YYYY format."
         )
         return get_user_expense()
 
+    # List of expense categories
     expense_categories = [
         "Housing",
         "Utilities",
@@ -78,6 +86,7 @@ def get_user_expense():
         "Miscellaneous",
     ]
 
+    # Prompt user to select a category
     while True:
         try:
             print("Select a category for your expense: ")
@@ -94,25 +103,31 @@ def get_user_expense():
                 break
             print("Invalid category. Please try again.")
         except ValueError:
+            # Handle invalid category selection input
             print("Invalid input. Please enter a valid category number.")
 
+    # Prompt user for description and amount of expense
     description = input("Enter the expense description: ").strip()
     if not description:
+        # Handle empty description
         print("Expense description cannot be empty. Please try again.")
         return get_user_expense()
 
     try:
         expense_amount = float(input("Enter the expense amount (€): "))
         if expense_amount <= 0:
+            # Handle invalid (negative) amount
             print(
                 "Expense amount must be greater than zero. "
                 "Please try again."
             )
             return get_user_expense()
     except ValueError:
+        # Handle invalid amount input
         print("Invalid input. Please enter a valid amount.")
         return get_user_expense()
 
+    # Create and return new expense object
     new_expense = Expense(
         date=expense_date,
         category=selected_category,
@@ -128,9 +143,11 @@ def view_expenses(expenses):
     """
     print("Viewing expenses...")
     if not expenses:
+        # Handle case with no expenses
         print("No expenses found.")
         return
 
+    # Display each expense in the list
     print("\n" + "-" * 50)
     for i, expense in enumerate(expenses):
         print(
@@ -146,9 +163,11 @@ def delete_expense(expenses):
     Prompt the user to select and delete an expense from the list.
     """
     if not expenses:
+        # Handle case with no expenses to delete
         print("No expenses to delete.")
         return expenses
 
+    # Display expenses and prompt user to select one to delete
     print("Select an expense to delete:")
     for i, expense in enumerate(expenses):
         print(
@@ -158,6 +177,7 @@ def delete_expense(expenses):
         )
 
     try:
+        # Get the index of the expense to delete and remove it from the list
         index_to_delete = (
             int(input("Enter the number of the expense to delete: ")) - 1
         )
@@ -165,8 +185,10 @@ def delete_expense(expenses):
             expenses.pop(index_to_delete)
             print("Expense deleted successfully.")
         else:
+            # Handle invalid index
             print("Invalid number. Please try again.")
     except ValueError:
+        # Handle invalid input (non-numeric)
         print("Invalid input. Please enter a valid number.")
     return expenses
 
@@ -177,9 +199,11 @@ def summarize_expenses(expenses, budget):
     """
     print("Summarizing your expenses...")
     if not expenses:
+        # Handle case with no expenses
         print("No expenses found.")
         return
 
+    # Calculate total amount spent per category
     amount_by_category = {}
     for expense in expenses:
         key = expense.category
@@ -188,10 +212,12 @@ def summarize_expenses(expenses, budget):
         else:
             amount_by_category[key] = expense.amount
 
+    # Display expense summary by category
     print("\nExpenses By Category:")
     for key, amount in amount_by_category.items():
         print(f"  {key}: €{amount:.2f}")
 
+    # Calculate and display total spent and remaining budget
     total_spent = sum(x.amount for x in expenses)
     print(f"\nTotal Spent: €{total_spent:.2f}")
 
