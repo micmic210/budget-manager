@@ -1,14 +1,15 @@
 """
-Budget Master application for managing expenses. 
+Budget Master application for managing expenses.
 """
 
-from expense import Expense
+
 import datetime
+from expense import Expense
 
 
 def main():
     """
-    Main function to run the Budget Manager application. Provide a 
+    Main function to run the Budget Manager application. Provide a
     menu for the user to add, view, delete, and summarize expenses.
     """
 
@@ -56,10 +57,13 @@ def get_user_expense():
     print("Let's add a new expense!")
     date_input = input("Enter the date (DD-MM-YYYY): ").strip()
     try:
-        expense_date = datetime.datetime.strptime(date_input, "%d-%m-%Y").date()
+        expense_date = datetime.datetime.strptime(
+            date_input, "%d-%m-%Y"
+        ).date()
     except ValueError:
         print(
-            "Invalid date format. Please enter a valid date in DD-MM-YYYY format."
+            "Invalid date format. Please enter a valid date in "
+            "DD-MM-YYYY format."
         )
         return get_user_expense()
 
@@ -188,7 +192,7 @@ def summarize_expenses(expenses, budget):
     for key, amount in amount_by_category.items():
         print(f"  {key}: €{amount:.2f}")
 
-    total_spent = sum([x.amount for x in expenses])
+    total_spent = sum(x.amount for x in expenses)
     print(f"\nTotal Spent: €{total_spent:.2f}")
 
     remaining_budget = budget - total_spent
@@ -197,4 +201,3 @@ def summarize_expenses(expenses, budget):
 
 if __name__ == "__main__":
     main()
-
