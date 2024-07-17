@@ -31,7 +31,7 @@ def main():
 
         try:
             # Get user choice and call the corresponding function
-            choice = int(input("Please select an option (1-5): "))
+            choice = int(input(" Please select an option (1-5): "))
             if choice == 1:
                 expense = get_user_expense()
                 expenses.append(expense)
@@ -91,9 +91,9 @@ def get_user_expense():
         try:
             print(" Select a category for your expense: ")
             for i, category_name in enumerate(expense_categories):
-                print(f" {i + 1}. {category_name}")
+                print( f"{i + 1}. {category_name}")
 
-            value_range = f" [1 - {len(expense_categories)}]"
+            value_range = f"[1 - {len(expense_categories)}]"
             selected_index = (
                 int(input(f" Enter a category number {value_range}: ")) - 1
             )
@@ -114,7 +114,7 @@ def get_user_expense():
         return get_user_expense()
 
     try:
-        expense_amount = float(input("  Enter the expense amount (€): "))
+        expense_amount = float(input(" Enter the expense amount (€): "))
         if expense_amount <= 0:
             # Handle invalid (negative) amount
             print(
