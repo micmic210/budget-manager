@@ -47,7 +47,8 @@ def main():
                 break
             else:
                 # Handle invalid choices
-                print(" Invalid choice. Please enter a number between 1 and 5.")
+                print(" Invalid choice. Please enter a number between 1 "
+                      "and 5.")
         except ValueError:
             # Handle invalid input (non-numeric)
             print(" Invalid input. Please enter a number.")
