@@ -1,5 +1,5 @@
 """
-Budget Mangager application for managing expenses.
+Budget Manager application for managing expenses.
 """
 
 
