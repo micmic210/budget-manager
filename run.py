@@ -12,7 +12,7 @@ def main():
     """
     Main function to run the Budget Manager application. Provide a
     menu for the user to add, view, delete, edit, and summarize expenses
-    as well as export data to CSV. 
+    as well as export data to CSV.
     """
     # Display welcome message
     print("\n" + "-" * 50)
@@ -48,7 +48,7 @@ def main():
             elif choice == 5:
                 summarize_expenses(expenses, budget)
             elif choice == 6:
-                export_to_csv(expenses)         
+                export_to_csv(expenses)
             elif choice == 7:
                 # Exit the program
                 print(" Thank you for using Budget Manager. Goodbye!")
@@ -65,7 +65,7 @@ def main():
 def get_user_expense():
     """
     Prompt the user to enter details for a new expense.
-    Returns: 
+    Returns:
         Expense: The newly created expense object.
     """
     # Prompt user for expense details
@@ -171,21 +171,21 @@ def edit_expense(expenses):
     if not expenses:
         print(" No expenses to edit.")
         return
-    
-    # Display the expenses for selection 
+
+    # Display the expenses for selection
     print(" Select an expense to edit: ")
     for i, expense in enumerate(expenses):
         print(f" {i + 1}. {expense}")
-    
+
     try:
         # Get the index of the expense to edit
         index_to_edit = int(input("\n Enter the number of the expense to edit: ")) - 1
         if 0 <= index_to_edit < len(expenses):
             expenses [index_to_edit] = get_user_expense()
             print(" Expense edited successfully.")
-        else: 
+        else:
             print(" Invalid number. Please try again.")
-    except ValueError: 
+    except ValueError:
         print(" Invalid input. Please enter a valid number.")
 
 
@@ -196,7 +196,7 @@ def delete_expense(expenses):
     if not expenses:
         # Handle case with no expenses to delete
         print(" No expenses to delete.")
-        return 
+        return
 
     # Display the expenses for selection
     print(" Select an expense to delete:")
@@ -248,6 +248,41 @@ def summarize_expenses(expenses, budget):
 
     remaining_budget = budget - total_spent
     print(f" Remaining Budget: €{remaining_budget:.2f}")
+
+def export_to_csv(expenses):
+    """
+    Export expenses to a CSV file.
+    """
+    confirm = input(
+        "Do you want to export the data to CSV? (yes/no): "
+    ).strip().lower()
+    if confirm == 'yes':
+        file_name = "expense_summary.csv"
+        try:
+            # Open the CSV file for writing
+            with open(file_name, 'w', newline='', encoding='utf-8') as csvfile:
+                fieldnames = ['Date', 'Category', 'Description', 'Amount']
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                # Write the header and the data
+                writer.writeheader()
+                for expense in expenses:
+                    writer.writerow({
+                        'Date': expense.date.strftime('%Y-%m-%d'),
+                        'Category': expense.category,
+                        'Description': expense.description,
+                        'Amount': expense.amount
+                    })
+            print(f" Data exported successfully to {file_name}")
+        except (IOError, OSError) as e:
+            print(f" Failed to export data due to file error: {e}")
+        except ValueError as e:
+            print(f" Failed to export data due to value error: {e}")
+        except csv.Error as e:
+            print(f" Failed to export data due to CSV error: {e}")
+    else:
+        print(" Export cancelled.")
+
 
 
 if __name__ == "__main__":
