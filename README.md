@@ -218,7 +218,7 @@ budget.
 ### Steps to Perform Testing
 1. Set up a virtual environment: python -m venv env 
 2. Activate the virtual environment: source env/bin/activate
-3. Install the required tools: pip install pycodestyle flake8 pyling
+3. Install the required tools: pip install pycodestyle flake8 pylint
 4. Run the code style and linting tools: 
    pycodestyle run.py
    flake8 run.py
