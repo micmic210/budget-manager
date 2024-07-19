@@ -42,7 +42,7 @@ def main():
             elif choice == 2:
                 view_expenses(expenses)
             elif choice == 3:
-                edit_expenses(expenses)
+                edit_expense(expenses)
             elif choice == 4:
                 delete_expense(expenses)
             elif choice == 5:
@@ -101,7 +101,7 @@ def get_user_expense():
                 print(f"    {i + 1}. {category_name}")
 
             # Get the selected category index
-            value_range = f"[1 - {len(expense_categories)}]"
+            value_range = f" [1 - {len(expense_categories)}]"
             selected_index = (
                 int(input(f" Enter a category number {value_range}: ")) - 1
             )
@@ -142,7 +142,6 @@ def get_user_expense():
         description,
         expense_amount,
     )
-    return new_expense
 
 
 def view_expenses(expenses):
@@ -170,7 +169,7 @@ def edit_expense(expenses):
     """
     if not expenses:
         print(" No expenses to edit.")
-        return
+        return expenses
 
     # Display the expenses for selection
     print(" Select an expense to edit: ")
@@ -179,9 +178,11 @@ def edit_expense(expenses):
 
     try:
         # Get the index of the expense to edit
-        index_to_edit = int(input("\n Enter the number of the expense to edit: ")) - 1
+        index_to_edit = int(
+            input("\n Enter the number of the expense to edit: ")
+        ) - 1
         if 0 <= index_to_edit < len(expenses):
-            expenses [index_to_edit] = get_user_expense()
+            expenses[index_to_edit] = get_user_expense()
             print(" Expense edited successfully.")
         else:
             print(" Invalid number. Please try again.")
@@ -196,7 +197,7 @@ def delete_expense(expenses):
     if not expenses:
         # Handle case with no expenses to delete
         print(" No expenses to delete.")
-        return
+        return expenses
 
     # Display the expenses for selection
     print(" Select an expense to delete:")
@@ -209,7 +210,6 @@ def delete_expense(expenses):
         # Get the index of the expense to delete
         index_to_delete = int(
             input("\n Enter the number of the expense to delete: ")) - 1
-
         if 0 <= index_to_delete < len(expenses):
             expenses.pop(index_to_delete)
             print(" Expense deleted successfully.")
@@ -227,7 +227,7 @@ def summarize_expenses(expenses, budget):
     print(" Summarizing your expenses...")
     if not expenses:
         print(" No expenses found.")
-        return
+        return expenses
 
     # Calculate total amount bycategory
     amount_by_category = {}
@@ -248,6 +248,7 @@ def summarize_expenses(expenses, budget):
 
     remaining_budget = budget - total_spent
     print(f" Remaining Budget: €{remaining_budget:.2f}")
+
 
 def export_to_csv(expenses):
     """
@@ -282,7 +283,6 @@ def export_to_csv(expenses):
             print(f" Failed to export data due to CSV error: {e}")
     else:
         print(" Export cancelled.")
-
 
 
 if __name__ == "__main__":
