@@ -9,16 +9,16 @@ a better way to organize your finances, Budget Manger provides the tools you nee
 budget. 
 
 ## Contents 
-### [Introduction](#introduction)
-### [User Experience](#user-experience)
-#### [User Stories](#user-stories)
-#### [User Goals](#user-goals)
-### [Application Features](#application-features)
-### [Future Features](#future-features)
-### [Technologies Used](#technologies-used)
-### [Deployment](#deployment)
-### [Testing](#testing)
-### [Credits](#credits)
+  * [Introduction](#introduction)
+  * [User Experience](#user-experience)
+      * [User Stories](#user-stories)
+      * [User Goals](#user-goals)
+  * [Application Features](#application-features)
+  * [Future Features](#future-features)
+  * [Technologies Used](#technologies-used)
+  * [Deployment](#deployment)
+  * [Testing](#testing)
+  * [Credits](#credits)
 
 
 
