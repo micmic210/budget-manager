@@ -169,7 +169,7 @@ def edit_expense(expenses):
     """
     if not expenses:
         print(" No expenses to edit.")
-        return expenses
+        return
 
     # Display the expenses for selection
     print(" Select an expense to edit: ")
@@ -197,7 +197,7 @@ def delete_expense(expenses):
     if not expenses:
         # Handle case with no expenses to delete
         print(" No expenses to delete.")
-        return expenses
+        return
 
     # Display the expenses for selection
     print(" Select an expense to delete:")
@@ -217,7 +217,6 @@ def delete_expense(expenses):
             print(" Invalid number. Please try again.")
     except ValueError:
         print(" Invalid input. Please enter a valid number.")
-    return expenses
 
 
 def summarize_expenses(expenses, budget):
@@ -227,7 +226,7 @@ def summarize_expenses(expenses, budget):
     print(" Summarizing your expenses...")
     if not expenses:
         print(" No expenses found.")
-        return expenses
+        return
 
     # Calculate total amount bycategory
     amount_by_category = {}
