@@ -3,10 +3,7 @@ link !!!
 
 ## Introduction 
 
-Welcome to Budget Manager, an easy-to-use application designed to help you manage and track your expenses
-efficiently. Whether you're looking to keep an eye on your daily spending, set budget limits, or just need 
-a better way to organize your finances, Budget Manger provides the tools you need to stay on top of your
-budget. 
+Welcome to Budget Manager, an easy-to-use application designed to help you manage and track your expenses efficiently. Whether you’re looking to keep an eye on your daily spending, set budget limits, or just need a better way to organize your finances, Budget Manager provides the tools you need to stay on top of your budget.
 
 ## Contents 
   * [Introduction](#introduction)
@@ -164,31 +161,20 @@ budget.
         * description: A brief description of the expense.
         * amount: The amount spent in Euro. 
 
-## Future Features
+## Future Features 
 
-1. Expense Editing
-    * Description: Allow users to edit existing expenses to correct mistakes 
-      or update information. 
-    * Implementation: Add a new menu option and corresponding function to 
-      select and edit expense details. 
-
-2. Income Tracking
+1. Income Tracking
     * Description: Enable users to log their income and calculate the net 
       balance after expenses.
     * Implementation: Add a new section for income entries, similar to 
       expenses, and adjust the budget summary to include income. 
 
-3. Recurring Expenses
+2. Recurring Expenses
     * Description: Allow users to set up recurring expenses that are automatically
       added to their expenses at specified intervals. 
     * Implementation: Implement a scheduling system to automatically log 
       recurring expenses. 
 
-4. Data Export and Import
-    * Description: Enable users to export their expense data to CSV, Excel, or 
-      PDF formats and import data from these formats. 
-    * Implementation: Implement functions to read from and write to these file
-      formats using libraries.
 
 ## Technologies Used
     ### Python
@@ -206,7 +192,10 @@ budget.
 9. Return to "Deploy" and go to "Manual deploy". 
 10. Select a branch to deploy and click "Deploy Branch".
 11. A message will display: "Your app was successfully deployed".
-12. Click the "View" button to check if it's deployed.    
+12. Click the "View" button to check if it's deployed.  
+
+Clone the repository:
+git clone https://github.com/micmic210/budget-manager.git
 
 ## Testing 
 
