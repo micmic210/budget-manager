@@ -254,7 +254,7 @@ def export_to_csv(expenses):
     Export expenses to a CSV file.
     """
     confirm = input(
-        "Do you want to export the data to CSV? (yes/no): "
+        " Do you want to export the data to CSV? (yes/no): "
     ).strip().lower()
     if confirm == 'yes':
         file_name = "expense_summary.csv"
