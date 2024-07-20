@@ -176,48 +176,48 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 ## Deployment
 
 1. Log in to Heroku
-  * Ensure you have a Heroku account and are logged in.
+    * Ensure you have a Heroku account and are logged in.
 
 2. Navigate to the Dashboard and click "New".
-  * In the top right corner of the Heroku Dashboard, click the “New” button.
+    * In the top right corner of the Heroku Dashboard, click the “New” button.
 
 3. From the "New", select "Create new app".
-  * Click on “Create new app” from the dropdown menu.
+    * Click on “Create new app” from the dropdown menu.
 
 4. Enter an app name and choose a region, and click "Create app". 
-  * Provide a unique app name and select the appropriate region (United States or Europe), then click “Create app”.
+    * Provide a unique app name and select the appropriate region (United States or Europe), then click “Create app”.
 
 5. Under "Deployment method", select "GitHub".
-  * In the app dashboard, navigate to the “Deploy” tab.
-	* Under “Deployment method”, choose “GitHub”.
+    * In the app dashboard, navigate to the “Deploy” tab.
+	  * Under “Deployment method”, choose “GitHub”.
 
 6. Search for your repository, connect to GitHub and click "Connect".
-	* Authorize Heroku to access your GitHub account if prompted.
-	* Search for your GitHub repository and click “Connect”.
+	  * Authorize Heroku to access your GitHub account if prompted.
+	  * Search for your GitHub repository and click “Connect”.
 
 7. Navigate to "Settings" and click "Add buildpack". 
-	* Go to the “Settings” tab.
-	* Scroll down to the “Buildpacks” section and click “Add buildpack”.
+	  * Go to the “Settings” tab.
+	  * Scroll down to the “Buildpacks” section and click “Add buildpack”.
 
 8. Select "Python" and click "Add buildpack". 
 	* Choose “Python” from the list and click “Save changes”.
 
 9. Return to "Deploy" and go to "Manual deploy". 
-  * Go back to the “Deploy” tab.
-	* In the “Manual deploy” section, select the branch you want to deploy.
+    * Go back to the “Deploy” tab.
+	  * In the “Manual deploy” section, select the branch you want to deploy.
 
 10. Select a branch to deploy and click "Deploy Branch".
-	* Choose the branch you want to deploy (e.g., main, master) and click “Deploy Branch”.
+	  * Choose the branch you want to deploy (e.g., main, master) and click “Deploy Branch”.
 
 11. A message will display: "Your app was successfully deployed".
-	* After the deployment process completes, you should see a success message.
+	  * After the deployment process completes, you should see a success message.
 
 12. Click the "View" button or "Open app" to check if it's deployed. 
-	* Click “View” or “Open app” to access your deployed application.
+	  * Click “View” or “Open app” to access your deployed application.
     Here's the link: [micmic210/budget-manager](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
 
 13. Clone the repository
-	* You can clone your repository using the provided command:
+	  * You can clone your repository using the provided command:
     ```bash
        git clone https://github.com/micmic210/budget-manager.git 
     ```
@@ -226,7 +226,9 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 
 ### Tools Used
 1. Pycodestyle: Checks Python code against the PEP 8 style guide to ensure consistency and readability.
+
 2.	Flake8: Combines Pycodestyle, pyflakes, and mccabe to check code style, detect errors, and measure complexity, ensuring a clean and manageable codebase.
+
 3.	Pylint: A static code analysis tool that catches errors, enforces coding standards, and suggests refactoring to maintain high code quality.
 
 ### Steps to Perform Testing
