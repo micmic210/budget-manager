@@ -10,17 +10,30 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 
 ## Contents 
   * [Introduction](#introduction)
+  * [Design Blueprint](#design-blueprint)
   * [User Experience](#user-experience)
       * [User Stories](#user-stories)
       * [User Goals](#user-goals)
   * [Application Features](#application-features)
+      * [Displaying Main Menu ](#1-main-menu-navigation)
+      * [Adding a New Expense](#2-adding-a-new-expense)
+      * [Viewing Expenses](#3-viewing-expenses)
+      * [Editing Expense](#4-editing-expense)
+      * [Deleting an Expense](#5-deleting-an-expense)
+      * [Summarizing Expenses](#6-summarizing-expenses)
+      * [Exporting Data to CSV](#7-exporting-data-to-csv)
+      * [Handling User Input and Validation](#8-handling-user-input-and-validation)
+      * [Expense Class](#9-expense-class)
   * [Future Features](#future-features)
   * [Technologies Used](#technologies-used)
   * [Deployment](#deployment)
   * [Testing](#testing)
   * [Credits](#credits)
 
+## Design Blueprint
 
+Below is the design blueprint of the Budget Manager application. This diagram outlines the main components and interactions within the system, providing a clear overview of the application's architecture.
+![Budget Manager Design Blueprint]()
 
 ## User Experience
 
@@ -82,14 +95,16 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 
 ## Application Features
 
-1. Main Menu Navigation
+### 1. Main Menu Navigation
+![Main Menu](/assets/images/menu.png)
 	* Function: main()
 	* Description: The main function serves as the entry point to the application. It displays a welcome message and a main menu with options to add, view, edit, delete, summarize expenses, export data to CSV, or exit the application.
 	* Logic:
 	    * A while loop is used to keep the application running until the user chooses to exit.
 	    * The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
 
-2. Adding a New Expense
+### 2. Adding a New Expense
+![Add](/assets/images/add.png)
 	* Function: get_user_expense()
 	* Description: Prompts the user to enter the details of a new expense, including the date, category, description, and amount. Validates the input and creates an Expense object.
 	* Logic:
@@ -98,14 +113,16 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * The user provides a description and the amount for the expense. The amount is validated to ensure it is a positive number.
 	    * An Expense object is created and returned.
 
-3. Viewing Expenses
+### 3. Viewing Expenses
+![View](/assets/images/view.png)
 	* Function: view_expenses(expenses)
 	* Description: Displays the list of all recorded expenses in a formatted manner.
 	* Logic:
 	    * Checks if there are any expenses to display.
 	    * Iterates through the list of expenses and prints each one with its details (date, category, description, and amount).
 
-4. Editing Expense
+### 4. Editing Expense
+![Edit](/assets/images/edit.png)
 	* Function: edit_expense(expenses)
 	* Description: Allows the user to edit the details of an existing expense by selecting its number.
 	* Logic:
@@ -113,7 +130,8 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to edit.
 	    * Validates the input and allows the user to update the selected expense’s details.
 
-5. Deleting an Expense
+### 5. Deleting an Expense
+![Delete](/assets/images/delete.png)
 	* Function: delete_expense(expenses)
 	* Description: Allows the user to delete an expense from the list by selecting its number.
 	* Logic:
@@ -121,7 +139,8 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to delete.
 	    * Validates the input and removes the selected expense from the list.
 
-6. Summarizing Expenses
+### 6. Summarizing Expenses
+![Summarize](/assets/images/summarize.png)
 	* Function: summarize_expenses(expenses, budget)
 	* Description: Provides a summary of expenses by category and displays the total spending and remaining budget.
 	* Logic:
@@ -130,7 +149,9 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * Prints the total amount spent in each category.
 	    * Calculates the total amount spent and the remaining budget, then displays these values.
 
-7. Exporting Data to CSV
+### 7. Exporting Data to CSV
+![Export-yes](/assets/images/export-yes.png)
+![Export-no](/assets/images/export-no.png)
   * Function: export_to_csv(expenses)
 	* Description: Exports the list of expenses to a CSV file for record-keeping or further analysis.
 	* Logic:
@@ -139,7 +160,7 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * Writes the headers and expense data to the CSV file.
 	    * Handles any file I/O errors gracefully.
 
-8. Handling User Input and Validation
+### 8. Handling User Input and Validation
 	* Description: Throughout the application, user inputs are validated to ensure correctness and robustness.
 	* Logic:
 	    * Date inputs are validated using datetime.strptime.
@@ -147,7 +168,7 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 	    * Description inputs are checked to ensure they are not empty.
 	    * Amount inputs are validated to ensure they are positive numbers.
 
-9. Expense Class
+### 9. Expense Class
     * Module: Expense
     * Class: Expense
     * Description: Represents an expense with attributes for date, category, 
