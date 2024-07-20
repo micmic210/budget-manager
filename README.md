@@ -1,9 +1,12 @@
 # Budget Manager
-[You can find my Budget Manager App here!](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
+![Budget Manager Header](/assets/images/home.png)
 
-## Introduction 
+## Introduction
 
 Welcome to Budget Manager, an easy-to-use application designed to help you manage and track your expenses efficiently. Whether you’re looking to keep an eye on your daily spending, set budget limits, or just need a better way to organize your finances, Budget Manager provides the tools you need to stay on top of your budget.
+
+
+[You can find my Budget Manager App here!](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
 
 ## Contents 
   * [Introduction](#introduction)
