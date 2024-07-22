@@ -6,3 +6,6 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+
+# Ignore the virtual environment directory
+env/
