@@ -96,16 +96,16 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 ## Application Features
 
 ### 1. Main Menu Navigation 
-	* Function: main()
+* Function: main()
 	* Description: The main function serves as the entry point to the application. It displays a welcome message and a main menu with options to add, view, edit, delete, summarize expenses, export data to CSV, or exit the application.
 	* Logic:
-	    * A while loop is used to keep the application running until the user chooses to exit.
-	    * The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
+		* A while loop is used to keep the application running until the user chooses to exit.
+		* The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
+
 ![Main Menu](/assets/images/menu.png)
 
 ### 2. Adding a New Expense
-![Add](/assets/images/add.png)
-	* Function: get_user_expense()
+* Function: get_user_expense()
 	* Description: Prompts the user to enter the details of a new expense, including the date, category, description, and amount. Validates the input and creates an Expense object.
 	* Logic:
 	    * The user is asked to enter the date of the expense, which is then parsed and validated.
@@ -113,46 +113,50 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 	    * The user provides a description and the amount for the expense. The amount is validated to ensure it is a positive number.
 	    * An Expense object is created and returned.
 
+![Add](/assets/images/add.png)
+
 ### 3. Viewing Expenses
-![View](/assets/images/view.png)
-	* Function: view_expenses(expenses)
+* Function: view_expenses(expenses)
 	* Description: Displays the list of all recorded expenses in a formatted manner.
 	* Logic:
 	    * Checks if there are any expenses to display.
 	    * Iterates through the list of expenses and prints each one with its details (date, category, description, and amount).
 
+![View](/assets/images/view.png)
+
 ### 4. Editing Expense
-![Edit](/assets/images/edit.png)
-	* Function: edit_expense(expenses)
+* Function: edit_expense(expenses)
 	* Description: Allows the user to edit the details of an existing expense by selecting its number.
 	* Logic:
 	    * Checks if there are any expenses to edit.
 	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to edit.
 	    * Validates the input and allows the user to update the selected expense’s details.
 
+![Edit](/assets/images/edit.png)
+
 ### 5. Deleting an Expense
-![Delete](/assets/images/delete.png)
-	* Function: delete_expense(expenses)
+* Function: delete_expense(expenses)
 	* Description: Allows the user to delete an expense from the list by selecting its number.
 	* Logic:
 	    * Checks if there are any expenses to delete.
 	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to delete.
 	    * Validates the input and removes the selected expense from the list.
 
+![Delete](/assets/images/delete.png)
+
 ### 6. Summarizing Expenses
-![Summarize](/assets/images/summarize.png)
-	* Function: summarize_expenses(expenses, budget)
-	* Description: Provides a summary of expenses by category and displays the total spending and remaining budget.
+* Function: summarize_expenses(expenses, budget)
+* Description: Provides a summary of expenses by category and displays the total spending and remaining budget.
 	* Logic:
 	    * Checks if there are any expenses to summarize.
 	    * Uses a dictionary to calculate the total amount spent per category.
 	    * Prints the total amount spent in each category.
 	    * Calculates the total amount spent and the remaining budget, then displays these values.
 
+![Summarize](/assets/images/summarize.png)
+
 ### 7. Exporting Data to CSV
-![Export-yes](/assets/images/export-yes.png)
-![Export-no](/assets/images/export-no.png)
-  * Function: export_to_csv(expenses)
+* Function: export_to_csv(expenses)
 	* Description: Exports the list of expenses to a CSV file for record-keeping or further analysis.
 	* Logic:
 	    * Prompts the user to confirm the export action.
@@ -160,8 +164,11 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 	    * Writes the headers and expense data to the CSV file.
 	    * Handles any file I/O errors gracefully.
 
+![Export-yes](/assets/images/export-yes.png)
+![Export-no](/assets/images/export-no.png)
+
 ### 8. Handling User Input and Validation
-	* Description: Throughout the application, user inputs are validated to ensure correctness and robustness.
+* Description: Throughout the application, user inputs are validated to ensure correctness and robustness.
 	* Logic:
 	    * Date inputs are validated using datetime.strptime.
 	    * Category selection is validated by checking if the selected index is within the range of available categories.
@@ -169,9 +176,9 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 	    * Amount inputs are validated to ensure they are positive numbers.
 
 ### 9. Expense Class
-    * Module: Expense
-    * Class: Expense
-    * Description: Represents an expense with attributes for date, category, 
+* Module: Expense
+* Class: Expense
+* Description: Represents an expense with attributes for date, category, 
       description, and amount.
     * Attributes:
         * date: The date of the expense.
@@ -213,35 +220,35 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 
 5. Under "Deployment method", select "GitHub".
     * In the app dashboard, navigate to the “Deploy” tab.
-	  * Under “Deployment method”, choose “GitHub”.
+	* Under “Deployment method”, choose “GitHub”.
 
 6. Search for your repository, connect to GitHub and click "Connect".
-	  * Authorize Heroku to access your GitHub account if prompted.
-	  * Search for your GitHub repository and click “Connect”.
+	* Authorize Heroku to access your GitHub account if prompted.
+	* Search for your GitHub repository and click “Connect”.
 
 7. Navigate to "Settings" and click "Add buildpack". 
-	  * Go to the “Settings” tab.
-	  * Scroll down to the “Buildpacks” section and click “Add buildpack”.
+	* Go to the “Settings” tab.
+	* Scroll down to the “Buildpacks” section and click “Add buildpack”.
 
 8. Select "Python" and click "Add buildpack". 
 	* Choose “Python” from the list and click “Save changes”.
 
 9. Return to "Deploy" and go to "Manual deploy". 
     * Go back to the “Deploy” tab.
-	  * In the “Manual deploy” section, select the branch you want to deploy.
+	* In the “Manual deploy” section, select the branch you want to deploy.
 
 10. Select a branch to deploy and click "Deploy Branch".
-	  * Choose the branch you want to deploy (e.g., main, master) and click “Deploy Branch”.
+	* Choose the branch you want to deploy (e.g., main, master) and click “Deploy Branch”.
 
 11. A message will display: "Your app was successfully deployed".
-	  * After the deployment process completes, you should see a success message.
+	* After the deployment process completes, you should see a success message.
 
 12. Click the "View" button or "Open app" to check if it's deployed. 
-	  * Click “View” or “Open app” to access your deployed application.
+	* Click “View” or “Open app” to access your deployed application.
     Here's the link: [micmic210/budget-manager](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
 
 13. Clone the repository
-	  * You can clone your repository using the provided command:
+	* You can clone your repository using the provided command:
     ```bash
        git clone https://github.com/micmic210/budget-manager.git 
     ```
