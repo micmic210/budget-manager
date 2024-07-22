@@ -33,7 +33,7 @@ Welcome to Budget Manager, an easy-to-use application designed to help you manag
 ## Design Blueprint
 
 Below is the design blueprint of the Budget Manager application. This diagram outlines the main components and interactions within the system, providing a clear overview of the application's architecture.
-![Budget Manager Design Blueprint]()
+![Budget Manager Design Blueprint](/assets/images/blue_print.png)
 
 ## User Experience
 
@@ -95,13 +95,13 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 
 ## Application Features
 
-### 1. Main Menu Navigation
-![Main Menu](/assets/images/menu.png)
+### 1. Main Menu Navigation 
 	* Function: main()
 	* Description: The main function serves as the entry point to the application. It displays a welcome message and a main menu with options to add, view, edit, delete, summarize expenses, export data to CSV, or exit the application.
 	* Logic:
 	    * A while loop is used to keep the application running until the user chooses to exit.
 	    * The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
+![Main Menu](/assets/images/menu.png)
 
 ### 2. Adding a New Expense
 ![Add](/assets/images/add.png)
