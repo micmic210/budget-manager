@@ -35,7 +35,7 @@ def main():
 
         try:
             # Get user choice and call the corresponding function
-            choice = int(input(" Please select an option (1-5): "))
+            choice = int(input(" Please select an option (1-7): "))
             if choice == 1:
                 expense = get_user_expense()
                 expenses.append(expense)

@@ -265,7 +265,7 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 ### Steps to Perform Testing
 1. Set up a virtual environment: 
     ```
-    python -m venv env
+    python3 -m venv env
     ```
 2. Activate the virtual environment: 
     ```
@@ -280,6 +280,7 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
    pycodestyle run.py
    flake8 run.py
    pylint run.py
+   
    ```
 5. Review and correct errors based on the messages provided by these tools.
 
