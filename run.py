@@ -2,7 +2,7 @@
 Budget Manager Application
 
 This module provides functionalities for managing a budget,
-including adding, viewing, editing, deleting, summarizing, 
+including adding, viewing, editing, deleting, summarizing,
 and exporting expenses.
 """
 
@@ -24,7 +24,7 @@ def print_title_message(message):
 
 def main():
     """
-    Main function to run the budget manager application. 
+    Main function to run the budget manager application.
     """
     # Display welcome message
     print("\n" + "*" * 50)
@@ -128,7 +128,6 @@ def get_user_expense():
             selected_index = int(
                 input(f" Enter a category number {value_range}: ")
             ) - 1
-            
             if selected_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_index]
                 break
@@ -313,7 +312,7 @@ def export_to_csv(expenses):
             f"\n Failed to export data due to value error: {e}"
         )
     except csv.Error as e:
-        print_(
+        print_error_message(
             f"\n Failed to export data due to CSV error: {e}"
         )
 
