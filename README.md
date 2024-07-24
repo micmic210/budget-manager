@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Welcome to Budget Manager, an easy-to-use application designed to help you manage and track your expenses efficiently. Whether you’re looking to keep an eye on your daily spending, set budget limits, or just need a better way to organize your finances, Budget Manager provides the tools you need to stay on top of your budget.
+The Budget Manager Application is a comprehensive tool designed to help users effectively manage their personal finances. This application provides a range of functionalities that allow users to record, track, and analyze their expenses. With a focus on simplicity and user-friendliness, the Budget Manager ensures that even users with minimal technical expertise can efficiently manage their budgets and stay on top of their financial health. By offering features such as expense tracking, budget summarization, and data export, the application serves as a reliable assistant for anyone looking to gain better control over their spending habits.
 
 
 [You can find my Budget Manager App here!](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
@@ -36,62 +36,41 @@ Below is the design blueprint of the Budget Manager application. This diagram ou
 ![Budget Manager Design Blueprint](/assets/images/blue_print.png)
 
 ## User Experience
+The Budget Manager Application is designed with a user-friendly interface, ensuring ease of navigation and interaction. Users are greeted with clear and color-coded messages that guide them through various functionalities. The application uses a simple main menu to access different features, providing straightforward prompts and error messages to help users manage their expenses effectively.
 
 ### User Stories
 
-1. Log My Daily Expenses Easily
-	* Story: As a user, I want to add my daily expenses quickly and easily, so I can keep track of where my money is going.
-	* Acceptance Criteria: The application allows me to enter the date, select a category from a list, write a description, and specify the amount for each expense. The application prompts for re-entry in case of invalid input.
+1. As a user, I want to add new expenses so that I can keep track of my spending.
+	* Scenario: The user selects the option to add a new expense, inputs the date, category, description, and amount, and the expense is saved successfully.
 
-2. View My Expense History
-	* Story: As a user, I want to view a list of all my expenses, so I can review my spending habits and ensure accuracy.
-	* Acceptance Criteria: The application displays all logged expenses in a clear and organized manner, with each expense showing the date, category, description, and amount.
+2. As a user, I want to view all my recorded expenses so that I can review my spending habits.
+	* Scenario: The user selects the option to view expenses, and a list of all recorded expenses is displayed in an organized manner.
 
-3.	Edit Incorrect or Outdated Expenses
-	  * Story: As a user, I want to edit any expenses that were entered incorrectly or have changed, so my records remain accurate.
-	  * Acceptance Criteria: The application allows me to select and edit any expense from the list, updating details such as date, category, description, and amount.
+3.	As a user, I want to edit an existing expense so that I can correct any mistakes or update the details.
+	* Scenario: The user selects the option to edit an expense, chooses the specific expense to update, modifies the details, and the changes are saved successfully.
 
-4. Delete Incorrect or Unnecessary Expenses
-	  * Story: As a user, I want to delete any expenses that were entered incorrectly or are no longer relevant, so my records remain accurate.
-	  * Acceptance Criteria: The application allows me to select and delete any expense from the list.
+4.	As a user, I want to delete an expense so that I can remove any incorrect or unnecessary records.
+	* Scenario: The user selects the option to delete an expense, confirms the deletion, and the expense is removed from the records.
 
-5. Summarize My Expenses by Category
-	  * Story: As a user, I want to see a summary of my expenses categorized by type, so I can understand where I’m spending the most money.
-	  * Acceptance Criteria: The application provides a summary of total spending per category and calculates the remaining budget.
+5.	As a user, I want to see a summary of my expenses categorized by type so that I can understand where my money is going.
+	* Scenario: The user selects the option to summarize expenses, and a categorized summary is displayed showing the total spent in each category and the remaining budget.
 
-6. Understand My Remaining Budget
-	  * Story: As a user, I want to see how much of my budget remains, so I can manage my finances better.
-	  * Acceptance Criteria: The application displays the total amount spent and the remaining budget after logging expenses, helping me to avoid overspending.
-
-7. Navigate the Application Easily
-	  * Story: As a user, I want a simple and intuitive menu to navigate through different options, so I can use the application efficiently.
-	  * Acceptance Criteria: The application provides a clear main menu with options to add, view, edit, delete, summarize expenses, export data to CSV, and exit the program.
+6.	As a user, I want to export my expenses to a CSV file so that I can analyze my data in other applications or keep a backup.
+	* Scenario: The user selects the option to export data, and the expenses are successfully saved to a CSV file.
 
 ### User Goals
 
-1. Efficient Expense Management
-	* Goal: Enable users to efficiently log and manage their daily expenses.
-	* Metric: The time taken to log an expense should be minimal, with a user-friendly input process that handles errors gracefully.
+1. Track Expenses: Users can add, view, edit, and delete their expenses to maintain an accurate and comprehensive record of their spending.
 
-2. Clear Overview of Spending
-	* Goal: Provide users with a clear and organized overview of their spending history.
-	* Metric: Users should be able to view all expenses at a glance, categorized and detailed for easy review.
+2.	Stay Within Budget: The application helps users monitor their spending against a predefined budget, providing alerts when they approach their limit.
 
-3. Accurate Records
-	* Goal: Maintain accurate records by allowing users to edit or delete incorrect or unnecessary expense entries.
-	* Metric: Users should be able to edit or delete expenses with minimal steps and without errors.
+3.	Analyze Spending: Users can generate summaries of their expenses by category, allowing them to identify spending patterns and areas for potential savings.
 
-4. Insightful Expense Summaries
-	* Goal: Offer insightful summaries that help users understand their spending patterns.
-	* Metric: Summaries should break down expenses by category and provide totals that are easy to interpret.
+4.	Export Data: Users can export their expense data to a CSV file, facilitating further analysis in spreadsheet programs or sharing with others.
 
-5. Budget Awareness
-	* Goal: Help users stay aware of their remaining budget to prevent overspending.
-	* Metric: The remaining budget should be prominently displayed and updated in real-time as expenses are logged.
+5.	Maintain Accurate Records: Users have the tools to correct or remove any erroneous entries, ensuring that their expense records are precise and reliable.
 
-6. Intuitive Navigation
-	* Goal: Ensure the application is easy to navigate for all users, regardless of technical skill.
-	* Metric: Users should be able to navigate the main menu and access different functionalities without confusion.
+6.	User-Friendly Interaction: The application offers an intuitive interface with clear prompts and feedback, making it accessible to users of all technical skill levels.
 
 ## Application Features
 
