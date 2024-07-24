@@ -27,14 +27,14 @@ def main():
     Main function to run the budget manager application. 
     """
     # Display welcome message
-    print("\n" + "-" * 50)
+    print("\n" + "*" * 50)
     print("\n Welcome to Budget Manager!")
     budget = 2000  # Budget limit in Euro
     expenses = []  # List to store expenses
 
     # Display the main menu
     while True:
-        print("\n" + "-" * 50)
+        print("\n" + "*" * 50)
         print("    Main Menu:")
         print("    1. Add a New Expense")
         print("    2. View Expenses")
@@ -43,34 +43,34 @@ def main():
         print("    5. Summarize Expenses")
         print("    6. Export Data to CSV")
         print("    7. Exit")
-        print("\n" + "-" * 50)
+        print("\n" + "*" * 50)
 
         try:
             # Get user choice and call the corresponding function
-            choice = int(input(" Please select an option (1-7): "))
+            choice = int(input(" Please select an option (1 - 7): "))
             if choice == 1:
-                print_title_message(" Let's Add a New Expense!")
+                print_title_message("\n Let's Add a New Expense!")
                 expense = get_user_expense()
                 if expense:
                     expenses.append(expense)
             elif choice == 2:
-                print_title_message(" Viewing Your Expenses")
+                print_title_message("\n Viewing Your Expenses")
                 view_expenses(expenses)
             elif choice == 3:
-                print_title_message(" Editing an Expense")
+                print_title_message("\n Editing an Expense")
                 edit_expense(expenses)
             elif choice == 4:
-                print_title_message(" Deleting an Expense")
+                print_title_message("\n Deleting an Expense")
                 delete_expense(expenses)
             elif choice == 5:
-                print_title_message(" Summarizing Your Expenses")
+                print_title_message("\n Summarizing Your Expenses")
                 summarize_expenses(expenses, budget)
             elif choice == 6:
-                print_title_message(" Exporting Data to CSV")
+                print_title_message("\n Exporting Data to CSV")
                 export_to_csv(expenses)
             elif choice == 7:
                 # Exit the program
-                print(" Thank you for using Budget Manager. Goodbye!")
+                print("\n Thank you for using Budget Manager. Goodbye!")
                 print("\n")
                 break
             else:
@@ -179,7 +179,6 @@ def view_expenses(expenses):
     """
     Displays the list of expenses.
     """
-    print(" Viewing expenses...")
     if not expenses:
         # Handle case with no expenses
         print_error_message(" No expenses found.")
@@ -211,8 +210,10 @@ def edit_expense(expenses):
             input("\n Enter the number of the expense to edit: ")
         ) - 1
         if 0 <= index_to_edit < len(expenses):
-            expenses[index_to_edit] = get_user_expense()
-            print(" Expense edited successfully.")
+            new_expense = get_user_expense()
+            if new_expense:
+                expenses[index_to_edit] = new_expense
+                print(" Expense edited successfully.")
         else:
             print_error_message(
                 " Invalid number. Please try again."
@@ -307,7 +308,7 @@ def export_to_csv(expenses):
         print_error_message(
             f"\n Failed to export data due to file error: {e}"
         )
-    except ValueError as e:
+    except csv.Error as e:
         print_error_message(
             f"\n Failed to export data due to value error: {e}"
         )
