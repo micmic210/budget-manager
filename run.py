@@ -75,8 +75,8 @@ def main():
             else:
                 # Handle invalid choices
                 print_error_message(
-                    " Invalid choice. Please enter a number between 1 "
-                    "and 5."
+                    " Invalid choice. Please enter a number between "
+                    "1 and 5."
                 )
         except ValueError:
             # Handle invalid input (non-numeric)
@@ -92,7 +92,6 @@ def get_user_expense():
         Expense: The newly created expense object.
     """
     # Prompt user for expense details
-    print(" Let's add a new expense!")
     date_input = input(" Enter the date (YYYY-MM-DD): ").strip()
     try:
         # Convert the input date to a datetime object
@@ -101,7 +100,7 @@ def get_user_expense():
         ).date()
     except ValueError:
         # Handle invalid date format
-        print(
+        print_error_message(
             " Invalid date format. Please enter a valid date in "
             " YYYY-MM-DD format."
         )
@@ -119,29 +118,35 @@ def get_user_expense():
     # Display the categories for selection
     while True:
         try:
-            print(" Select a category for your expense: ")
+            print("\n Select a category for your expense: ")
             for i, category_name in enumerate(expense_categories):
                 print(f"    {i + 1}. {category_name}")
 
             # Get the selected category index
             value_range = f" [1 - {len(expense_categories)}]"
-            selected_index = (
-                int(input(f" Enter a category number {value_range}: ")) - 1
-            )
-
+            selected_index = int(
+                input(f" Enter a category number {value_range}: ")
+            ) - 1
+            
             if selected_index in range(len(expense_categories)):
                 selected_category = expense_categories[selected_index]
                 break
-            print(" Invalid category. Please try again.")
+            print_error_message(
+                " Invalid category. Please try again."
+            )
         except ValueError:
             # Handle invalid category selection input
-            print(" Invalid input. Please enter a valid category number.")
+            print_error_message(
+                " Invalid input. Please enter a valid category number."
+            )
 
     # Get the expense description
     description = input(" Enter the expense description: ").strip()
     if not description:
         # Handle empty description
-        print(" Expense description cannot be empty. Please try again.")
+        print_error_message(
+            " Expense description cannot be empty. Please try again."
+        )
         return get_user_expense()
 
     try:
@@ -149,21 +154,23 @@ def get_user_expense():
         expense_amount = float(input(" Enter the expense amount (€): "))
         if expense_amount <= 0:
             # Handle invalid (negative) amount
-            print(
+            print_error_message(
                 " Expense amount must be greater than zero. "
                 " Please try again."
             )
             return get_user_expense()
     except ValueError:
         # Handle invalid amount input
-        print(" Invalid input. Please enter a valid amount.")
+        print_error_message(
+            " Invalid input. Please enter a valid amount."
+        )
         return get_user_expense()
 
     return Expense(
         expense_date,
         selected_category,
         description,
-        expense_amount,
+        expense_amount
     )
 
 
