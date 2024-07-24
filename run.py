@@ -1,6 +1,20 @@
 """
-Budget Manager application for managing expenses.
+Budget Manager Application
+
+This module provides functionalities for managing a budget,
+including adding, viewing, editing, deleting, summarizing, 
+and exporting expenses.
 """
+
+
+def print_error_message(message):
+    """Prints a title message in red."""
+    print(f"\033[91m{message}\033[0m")
+
+
+def print_title_message(message):
+    """Prints a title message in green."""
+    print(f"\033[92m{message}\033[0m")
 
 
 import datetime
@@ -10,9 +24,7 @@ from expense import Expense
 
 def main():
     """
-    Main function to run the Budget Manager application. Provide a
-    menu for the user to add, view, delete, edit, and summarize expenses
-    as well as export data to CSV.
+    Main function to run the budget manager application. 
     """
     # Display welcome message
     print("\n" + "-" * 50)
@@ -37,29 +49,40 @@ def main():
             # Get user choice and call the corresponding function
             choice = int(input(" Please select an option (1-7): "))
             if choice == 1:
+                print_title_message(" Let's Add a New Expense!")
                 expense = get_user_expense()
                 expenses.append(expense)
             elif choice == 2:
+                print_title_message(" Viewing Your Expenses")
                 view_expenses(expenses)
             elif choice == 3:
+                print_title_message(" Editting an Expense")
                 edit_expense(expenses)
             elif choice == 4:
+                print_title_message(" Deleting an Expense")
                 delete_expense(expenses)
             elif choice == 5:
+                print_title_message(" Summarizing Your Expenses")
                 summarize_expenses(expenses, budget)
             elif choice == 6:
+                print_title_message(" Exporting Data to CSV")
                 export_to_csv(expenses)
             elif choice == 7:
                 # Exit the program
                 print(" Thank you for using Budget Manager. Goodbye!")
+                print("\n")
                 break
             else:
                 # Handle invalid choices
-                print(" Invalid choice. Please enter a number between 1 "
-                      "and 5.")
+                print_error_message(
+                    " Invalid choice. Please enter a number between 1 "
+                    "and 5."
+                )
         except ValueError:
             # Handle invalid input (non-numeric)
-            print(" Invalid input. Please enter a number.")
+            print_error_message(
+                " Invalid input. Please enter a number."
+            )
 
 
 def get_user_expense():
