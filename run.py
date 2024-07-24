@@ -285,35 +285,35 @@ def export_to_csv(expenses):
     """
     Export expenses to a CSV file.
     """
-    confirm = input(
-        " Do you want to export the data to CSV? (yes/no): "
-    ).strip().lower()
-    if confirm == 'yes':
-        file_name = "expense_summary.csv"
-        try:
-            # Open the CSV file for writing
-            with open(file_name, 'w', newline='', encoding='utf-8') as csvfile:
-                fieldnames = ['Date', 'Category', 'Description', 'Amount']
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    file_name = "expense_summary.csv"
+    try:
+        # Open the CSV file for writing
+        with open(file_name, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['Date', 'Category', 'Description', 'Amount']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-                # Write the header and the data
-                writer.writeheader()
-                for expense in expenses:
-                    writer.writerow({
-                        'Date': expense.date.strftime('%Y-%m-%d'),
-                        'Category': expense.category,
-                        'Description': expense.description,
-                        'Amount': expense.amount
-                    })
-            print(f" Data exported successfully to {file_name}")
-        except (IOError, OSError) as e:
-            print(f" Failed to export data due to file error: {e}")
-        except ValueError as e:
-            print(f" Failed to export data due to value error: {e}")
-        except csv.Error as e:
-            print(f" Failed to export data due to CSV error: {e}")
-    else:
-        print(" Export cancelled.")
+            # Write the header and the data
+            writer.writeheader()
+            for expense in expenses:
+                writer.writerow({
+                    'Date': expense.date.strftime('%Y-%m-%d'),
+                    'Category': expense.category,
+                    'Description': expense.description,
+                    'Amount': expense.amount
+                })
+        print(f"\n Data exported successfully to {file_name}")
+    except (IOError, OSError) as e:
+        print_error_message(
+            f"\n Failed to export data due to file error: {e}"
+        )
+    except ValueError as e:
+        print_error_message(
+            f"\n Failed to export data due to value error: {e}"
+        )
+    except csv.Error as e:
+        print_(
+            f"\n Failed to export data due to CSV error: {e}"
+        )
 
 
 if __name__ == "__main__":
