@@ -181,15 +181,13 @@ def view_expenses(expenses):
     print(" Viewing expenses...")
     if not expenses:
         # Handle case with no expenses
-        print(" No expenses found.")
+        print_error_message(" No expenses found.")
         return
 
     # Print each expense
     print("\n" + "-" * 50)
     for i, expense in enumerate(expenses):
-        print(
-            f" {i + 1}. {expense}, "
-        )
+        print(f" {i + 1}. {expense}, ")
     print("-" * 50)
 
 
@@ -198,11 +196,11 @@ def edit_expense(expenses):
     Prompt the user to select and edit an expense from the list
     """
     if not expenses:
-        print(" No expenses to edit.")
+        print_error_message(" No expenses to edit.")
         return
 
     # Display the expenses for selection
-    print(" Select an expense to edit: ")
+    print("\n Select an expense to edit: ")
     for i, expense in enumerate(expenses):
         print(f" {i + 1}. {expense}")
 
@@ -215,9 +213,13 @@ def edit_expense(expenses):
             expenses[index_to_edit] = get_user_expense()
             print(" Expense edited successfully.")
         else:
-            print(" Invalid number. Please try again.")
+            print_error_message(
+                " Invalid number. Please try again."
+            )
     except ValueError:
-        print(" Invalid input. Please enter a valid number.")
+        print_error_message(
+            " Invalid input. Please enter a valid number."
+        )
 
 
 def delete_expense(expenses):
