@@ -228,36 +228,36 @@ def delete_expense(expenses):
     """
     if not expenses:
         # Handle case with no expenses to delete
-        print(" No expenses to delete.")
+        print_error_message(" No expenses to delete.")
         return
 
     # Display the expenses for selection
-    print(" Select an expense to delete:")
+    print("\n Select an expense to delete:")
     for i, expense in enumerate(expenses):
-        print(
-            f" {i + 1}. {expense}, "
-        )
+        print(f" {i + 1}. {expense}, ")
 
     try:
         # Get the index of the expense to delete
         index_to_delete = int(
-            input("\n Enter the number of the expense to delete: ")) - 1
+            input("\n Enter the number of the expense to delete: ")
+        ) - 1
         if 0 <= index_to_delete < len(expenses):
             expenses.pop(index_to_delete)
             print(" Expense deleted successfully.")
         else:
-            print(" Invalid number. Please try again.")
+            print_error_message(" Invalid number. Please try again.")
     except ValueError:
-        print(" Invalid input. Please enter a valid number.")
+        print_error_message(
+            " Invalid input. Please enter a valid number."
+            )
 
 
 def summarize_expenses(expenses, budget):
     """
     Summarize expenses by category and display the total and remaining budget.
     """
-    print(" Summarizing your expenses...")
     if not expenses:
-        print(" No expenses found.")
+        print_error_message(" No expenses found.")
         return
 
     # Calculate total amount bycategory
