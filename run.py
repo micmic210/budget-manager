@@ -7,6 +7,11 @@ and exporting expenses.
 """
 
 
+import datetime
+import csv
+from expense import Expense
+
+
 def print_error_message(message):
     """Prints a title message in red."""
     print(f"\033[91m{message}\033[0m")
@@ -15,11 +20,6 @@ def print_error_message(message):
 def print_title_message(message):
     """Prints a title message in green."""
     print(f"\033[92m{message}\033[0m")
-
-
-import datetime
-import csv
-from expense import Expense
 
 
 def main():
@@ -51,12 +51,13 @@ def main():
             if choice == 1:
                 print_title_message(" Let's Add a New Expense!")
                 expense = get_user_expense()
-                expenses.append(expense)
+                if expense:
+                    expenses.append(expense)
             elif choice == 2:
                 print_title_message(" Viewing Your Expenses")
                 view_expenses(expenses)
             elif choice == 3:
-                print_title_message(" Editting an Expense")
+                print_title_message(" Editing an Expense")
                 edit_expense(expenses)
             elif choice == 4:
                 print_title_message(" Deleting an Expense")
@@ -76,7 +77,7 @@ def main():
                 # Handle invalid choices
                 print_error_message(
                     " Invalid choice. Please enter a number between "
-                    "1 and 5."
+                    "1 and 7."
                 )
         except ValueError:
             # Handle invalid input (non-numeric)
@@ -104,7 +105,7 @@ def get_user_expense():
             " Invalid date format. Please enter a valid date in "
             " YYYY-MM-DD format."
         )
-        return get_user_expense()
+        return None
 
     # List of expense categories
     expense_categories = [
@@ -147,7 +148,7 @@ def get_user_expense():
         print_error_message(
             " Expense description cannot be empty. Please try again."
         )
-        return get_user_expense()
+        return None
 
     try:
         # Get the expense amount
@@ -158,13 +159,13 @@ def get_user_expense():
                 " Expense amount must be greater than zero. "
                 " Please try again."
             )
-            return get_user_expense()
+            return None
     except ValueError:
         # Handle invalid amount input
         print_error_message(
             " Invalid input. Please enter a valid amount."
         )
-        return get_user_expense()
+        return None
 
     return Expense(
         expense_date,
@@ -187,7 +188,7 @@ def view_expenses(expenses):
     # Print each expense
     print("\n" + "-" * 50)
     for i, expense in enumerate(expenses):
-        print(f" {i + 1}. {expense}, ")
+        print(f" {i + 1}. {expense} ")
     print("-" * 50)
 
 
@@ -260,7 +261,7 @@ def summarize_expenses(expenses, budget):
         print_error_message(" No expenses found.")
         return
 
-    # Calculate total amount bycategory
+    # Calculate total amount by category
     amount_by_category = {}
     for expense in expenses:
         if expense.category in amount_by_category:
