@@ -311,10 +311,6 @@ def export_to_csv(expenses):
         print_error_message(
             f"\n Failed to export data due to value error: {e}"
         )
-    except csv.Error as e:
-        print_error_message(
-            f"\n Failed to export data due to CSV error: {e}"
-        )
 
 
 if __name__ == "__main__":
