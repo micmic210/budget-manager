@@ -1,5 +1,5 @@
 # Budget Manager
-![Budget Manager Header](/assets/images/home.png)
+![Budget Manager Header](/assets/images/main.png)
 
 ## Introduction
 
@@ -33,7 +33,9 @@ The Budget Manager Application is a comprehensive tool designed to help users ef
 ## Design Blueprint
 
 Below is the design blueprint of the Budget Manager application. This diagram outlines the main components and interactions within the system, providing a clear overview of the application's architecture.
-![Budget Manager Design Blueprint](/assets/images/blue_print.png)
+
+![Budget Manager Design Blueprint](/assets/images/simple.png)
+![Budget Manager Design Blueprint](/assets/images/detailed_chart.png)
 
 ## User Experience
 The Budget Manager Application is designed with a user-friendly interface, ensuring ease of navigation and interaction. Users are greeted with clear and color-coded messages that guide them through various functionalities. The application uses a simple main menu to access different features, providing straightforward prompts and error messages to help users manage their expenses effectively.
@@ -81,7 +83,7 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 		* A while loop is used to keep the application running until the user chooses to exit.
 		* The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
 
-![Main Menu](/assets/images/menu.png)
+![Main Menu](/assets/images/main.png)
 
 ### 2. Adding a New Expense
 * Function: get_user_expense()
@@ -143,8 +145,7 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 	    * Writes the headers and expense data to the CSV file.
 	    * Handles any file I/O errors gracefully.
 
-![Export-yes](/assets/images/export-yes.png)
-![Export-no](/assets/images/export-no.png)
+![Export-yes](/assets/images/export.png)
 
 ### 8. Handling User Input and Validation
 * Description: Throughout the application, user inputs are validated to ensure correctness and robustness.
