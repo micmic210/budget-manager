@@ -11,6 +11,8 @@ The Budget Manager Application helps users manage their personal finances effect
 ## Contents 
   * [Introduction](#introduction)
   * [System Design](#system-design)
+      * [Simple Flowchart](#simple-flowchart)
+      * [Detailed Flowchart](#detailed-flowchart)
   * [User Experience](#user-experience)
       * [User Stories](#user-stories)
       * [User Goals](#user-goals)
@@ -18,7 +20,7 @@ The Budget Manager Application helps users manage their personal finances effect
       * [Displaying Main Menu ](#1-main-menu-navigation)
       * [Adding a New Expense](#2-adding-a-new-expense)
       * [Viewing Expenses](#3-viewing-expenses)
-      * [Editing Expense](#4-editing-expense)
+      * [Editing an Expense](#4-editing-expense)
       * [Deleting an Expense](#5-deleting-an-expense)
       * [Summarizing Expenses](#6-summarizing-expenses)
       * [Exporting Data to CSV](#7-exporting-data-to-csv)
@@ -28,43 +30,50 @@ The Budget Manager Application helps users manage their personal finances effect
   * [Technologies Used](#technologies-used)
   * [Deployment](#deployment)
   * [Testing](#testing)
+      * [Bugs Fixed](#bugs-fixed)
   * [Credits](#credits)
 
+
 ## System Design
+
 The Budget Manager application provides a comprehensive solution for managing your budget effectively. This section offers an in-depth look at the application’s design through both simple and detailed flowcharts.
 
 ### Simple Flowchart
+
 The simple flowchart offers a high-level overview of the application’s core functionality. It serves as a draft idea to understand the overall concept and the main operations of the app. This visualization is helpful for quickly grasping the application’s workflow.
 
 ![Budget Manager Simple Chart](/assets/images/simple.png)
 
 ### Detailed Flowchart
+
 The detailed flowchart provides a closer look at the application’s processes and logic. It breaks down each step involved in the workflow, including user inputs, validation processes, and error handling. This detailed visualization is crucial for comprehending the intricate workings of the app and ensuring that each component interacts seamlessly.
 
 ![Budget Manager Detailed Chart](/assets/images/detailed_chart.png)
 
+
 ## User Experience
+
 The Budget Manager Application is designed with a user-friendly interface, ensuring ease of navigation and interaction. Users are greeted with clear and color-coded messages that guide them through various functionalities. The application uses a simple main menu to access different features, providing straightforward prompts and error messages to help users manage their expenses effectively.
 
 ### User Stories
 
 1. As a user, I want to add new expenses so that I can keep track of my spending.
-	*   Scenario: The user selects the option to add a new expense, inputs the date, category, description, and amount, and the expense is saved successfully.
+    * Scenario: The user selects the option to add a new expense, inputs the date, category, description, and amount, and the expense is saved successfully.
 
 2. As a user, I want to view all my recorded expenses so that I can review my spending habits.
-	*   Scenario: The user selects the option to view expenses, and a list of all recorded expenses is displayed in an organized manner.
+    * Scenario: The user selects the option to view expenses, and a list of all recorded expenses is displayed in an organized manner.
 
 3.	As a user, I want to edit an existing expense so that I can correct any mistakes or update the details.
-	*   Scenario: The user selects the option to edit an expense, chooses the specific expense to update, modifies the details, and the changes are saved successfully.
+    * Scenario: The user selects the option to edit an expense, chooses the specific expense to update, modifies the details, and the changes are saved successfully.
 
 4.	As a user, I want to delete an expense so that I can remove any incorrect or unnecessary records.
-	*   Scenario: The user selects the option to delete an expense, confirms the deletion, and the expense is removed from the records.
+    * Scenario: The user selects the option to delete an expense, confirms the deletion, and the expense is removed from the records.
 
 5.	As a user, I want to see a summary of my expenses categorized by type so that I can understand where my money is going.
-	*   Scenario: The user selects the option to summarize expenses, and a categorized summary is displayed showing the total spent in each category and the remaining budget.
+    * Scenario: The user selects the option to summarize expenses, and a categorized summary is displayed showing the total spent in each category and the remaining budget.
 
 6.	As a user, I want to export my expenses to a CSV file so that I can analyze my data in other applications or keep a backup.
-	*   Scenario: The user selects the option to export data, and the expenses are successfully saved to a CSV file.
+    * Scenario: The user selects the option to export data, and the expenses are successfully saved to a CSV file.
 
 ### User Goals
 
@@ -80,12 +89,12 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 
 6.	User-Friendly Interaction: The application offers an intuitive interface with clear prompts and feedback, making it accessible to users of all technical skill levels.
 
+
 ## Application Features
 
 ### 1. Displaying a Main Menu
 *   Display a welcome message to the user upon launching the application.
 *   Present the main menu with options for each feature, including “Add a New Expense,” “View Expenses,” “Edit an Expense,” “Delete an Expense,” “Summarize Expenses,” “Export Data to CSV,” “Set a Budget Limit,” and “Exit the Application.”
-
 
 ![Main Menu](/assets/images/main.png)
 
@@ -93,7 +102,6 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 *	Prompt the user to enter the date, category, description, and amount for a new expense.
 *	Validate the input to ensure all details are entered correctly.
 *	Add the validated expense to the list of expenses.
-
 
 ![Add](/assets/images/add.png)
 
@@ -103,7 +111,7 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 
 ![View](/assets/images/view.png)
 
-### 4. Editing Expense
+### 4. Editing an Expense
 *	Allow the user to select an existing expense to edit from the list.
 *	Prompt the user to enter the new details for the selected expense.
 *	Update the expense with the new details upon validation.
@@ -123,7 +131,7 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 
 ![Summarize](/assets/images/summarize.png)
 
-### 7. Export Data to CSV
+### 7. Exporting Data to CSV
 *	Export the list of expenses to a CSV file named expense_summary.csv.
 *	Include columns for Date, Category, Description, and Amount in the CSV file.
 *	Handle file-related errors and notify the user in case of any issues during the export process.
@@ -135,11 +143,14 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 *	Display a main menu with options for each feature.
 *	Ensure all user inputs are validated and handle invalid inputs gracefully.
 
-### 9. Exit the Application
+![User-Friendly](/assets/images/error.png)
+
+### 9. Exiting the Application
 *	Provide an option for the user to exit the application.
 *	Display a thank-you message upon exiting.
 
 ![Exit](/assets/images/exit.png)
+
 
 ## Future Features 
 
@@ -157,7 +168,9 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 
 
 ## Technologies Used
+
 ### Python
+
 
 ## Deployment
 
@@ -208,36 +221,33 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
        git clone https://github.com/micmic210/budget-manager.git 
     ```
 
+
 ## Testing 
 
-### Tools Used
-1. Pycodestyle: Checks Python code against the PEP 8 style guide to ensure consistency and readability.
+I performed both manual and automatic tests. The results of the manual tests can be found in the [TESTING.md.](/TESTING.md) 
+
+For automatic tests, I used the following tools:
+
+1.  Pycodestyle: Checks Python code against the PEP 8 style guide to ensure consistency and readability.
 
 2.	Flake8: Combines Pycodestyle, pyflakes, and mccabe to check code style, detect errors, and measure complexity, ensuring a clean and manageable codebase.
 
 3.	Pylint: A static code analysis tool that catches errors, enforces coding standards, and suggests refactoring to maintain high code quality.
 
-### Steps to Perform Testing
-1. Set up a virtual environment: 
-    ```
-    python3 -m venv env
-    ```
-2. Activate the virtual environment: 
-    ```
-    source env/bin/activate
-    ```
-3. Install the required tools: 
-    ```
-    pip install pycodestyle flake8 pylint
-    ```
-4. Run the code style and linting tools: 
-   ```
-   pycodestyle run.py
-   flake8 run.py
-   pylint run.py
-   
-   ```
-5. Review and correct errors based on the messages provided by these tools.
+### Bugs Fixed
+
+1.	E501 - Line too long:
+	_How I fixed_: I broke long lines of code into multiple lines to ensure they are within the PEP 8 recommended limit of 79 characters per line. I used line continuation characters (backslash) or wrapped lines within parentheses for better readability.
+
+2.	E211 - Whitespace before:
+	_How I fixed_: I removed any unnecessary whitespace before parentheses, brackets, or other punctuation. I ensured there was no space between a function name and the opening parenthesis when calling the function.
+
+3.	E302 - Too many blank lines:
+	_How I fixed_: I ensured there were no more than two blank lines separating top-level functions and class definitions. I maintained a single blank line between methods within a class.
+
+4.	F821 - Undefined name:
+	_How I fixed_: I made sure all variables and functions were defined before they were used. I checked for typos or missing imports that could cause names to be undefined.
+
 
 ## Credits
 
@@ -257,6 +267,4 @@ I would like to thank the following people and organizations for their support a
 1. Mr.Jubril Akolade for his invaluable guidance and feedback throughout the development of this project.
 
 2. My family and friends for their patience and encouragement during long coding sessions.
-
-
 
