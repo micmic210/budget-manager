@@ -3,14 +3,14 @@
 
 ## Introduction
 
-The Budget Manager Application is a comprehensive tool designed to help users effectively manage their personal finances. This application provides a range of functionalities that allow users to record, track, and analyze their expenses. With a focus on simplicity and user-friendliness, the Budget Manager ensures that even users with minimal technical expertise can efficiently manage their budgets and stay on top of their financial health. By offering features such as expense tracking, budget summarization, and data export, the application serves as a reliable assistant for anyone looking to gain better control over their spending habits.
+The Budget Manager Application helps users manage their personal finances effectively. It offers functionalities to record, track, and analyze expenses, focusing on simplicity and user-friendliness. Features include expense tracking, budget summarization, and data export, making it a reliable tool for better control over spending habits.
 
 
 [You can find my Budget Manager App here!](https://budget-manager-ab4ecb0da2c1.herokuapp.com/)
 
 ## Contents 
   * [Introduction](#introduction)
-  * [Design Blueprint](#design-blueprint)
+  * [System Design](#system-design)
   * [User Experience](#user-experience)
       * [User Stories](#user-stories)
       * [User Goals](#user-goals)
@@ -22,20 +22,26 @@ The Budget Manager Application is a comprehensive tool designed to help users ef
       * [Deleting an Expense](#5-deleting-an-expense)
       * [Summarizing Expenses](#6-summarizing-expenses)
       * [Exporting Data to CSV](#7-exporting-data-to-csv)
-      * [Handling User Input and Validation](#8-handling-user-input-and-validation)
-      * [Expense Class](#9-expense-class)
+      * [User-Friendly Interface](#8-user-friendly-interface)
+      * [Exit the Application](#9-exit-the-application)
   * [Future Features](#future-features)
   * [Technologies Used](#technologies-used)
   * [Deployment](#deployment)
   * [Testing](#testing)
   * [Credits](#credits)
 
-## Design Blueprint
+## System Design
+The Budget Manager application provides a comprehensive solution for managing your budget effectively. This section offers an in-depth look at the application’s design through both simple and detailed flowcharts.
 
-Below is the design blueprint of the Budget Manager application. This diagram outlines the main components and interactions within the system, providing a clear overview of the application's architecture.
+### Simple Flowchart
+The simple flowchart offers a high-level overview of the application’s core functionality. It serves as a draft idea to understand the overall concept and the main operations of the app. This visualization is helpful for quickly grasping the application’s workflow.
 
-![Budget Manager Design Blueprint](/assets/images/simple.png)
-![Budget Manager Design Blueprint](/assets/images/detailed_chart.png)
+![Budget Manager Simple Chart](/assets/images/simple.png)
+
+### Detailed Flowchart
+The detailed flowchart provides a closer look at the application’s processes and logic. It breaks down each step involved in the workflow, including user inputs, validation processes, and error handling. This detailed visualization is crucial for comprehending the intricate workings of the app and ensuring that each component interacts seamlessly.
+
+![Budget Manager Detailed Chart](/assets/images/detailed_chart.png)
 
 ## User Experience
 The Budget Manager Application is designed with a user-friendly interface, ensuring ease of navigation and interaction. Users are greeted with clear and color-coded messages that guide them through various functionalities. The application uses a simple main menu to access different features, providing straightforward prompts and error messages to help users manage their expenses effectively.
@@ -43,22 +49,22 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 ### User Stories
 
 1. As a user, I want to add new expenses so that I can keep track of my spending.
-	* Scenario: The user selects the option to add a new expense, inputs the date, category, description, and amount, and the expense is saved successfully.
+	*   Scenario: The user selects the option to add a new expense, inputs the date, category, description, and amount, and the expense is saved successfully.
 
 2. As a user, I want to view all my recorded expenses so that I can review my spending habits.
-	* Scenario: The user selects the option to view expenses, and a list of all recorded expenses is displayed in an organized manner.
+	*   Scenario: The user selects the option to view expenses, and a list of all recorded expenses is displayed in an organized manner.
 
 3.	As a user, I want to edit an existing expense so that I can correct any mistakes or update the details.
-	* Scenario: The user selects the option to edit an expense, chooses the specific expense to update, modifies the details, and the changes are saved successfully.
+	*   Scenario: The user selects the option to edit an expense, chooses the specific expense to update, modifies the details, and the changes are saved successfully.
 
 4.	As a user, I want to delete an expense so that I can remove any incorrect or unnecessary records.
-	* Scenario: The user selects the option to delete an expense, confirms the deletion, and the expense is removed from the records.
+	*   Scenario: The user selects the option to delete an expense, confirms the deletion, and the expense is removed from the records.
 
 5.	As a user, I want to see a summary of my expenses categorized by type so that I can understand where my money is going.
-	* Scenario: The user selects the option to summarize expenses, and a categorized summary is displayed showing the total spent in each category and the remaining budget.
+	*   Scenario: The user selects the option to summarize expenses, and a categorized summary is displayed showing the total spent in each category and the remaining budget.
 
 6.	As a user, I want to export my expenses to a CSV file so that I can analyze my data in other applications or keep a backup.
-	* Scenario: The user selects the option to export data, and the expenses are successfully saved to a CSV file.
+	*   Scenario: The user selects the option to export data, and the expenses are successfully saved to a CSV file.
 
 ### User Goals
 
@@ -76,95 +82,64 @@ The Budget Manager Application is designed with a user-friendly interface, ensur
 
 ## Application Features
 
-### 1. Main Menu Navigation 
-* Function: main()
-	* Description: The main function serves as the entry point to the application. It displays a welcome message and a main menu with options to add, view, edit, delete, summarize expenses, export data to CSV, or exit the application.
-	* Logic:
-		* A while loop is used to keep the application running until the user chooses to exit.
-		* The user is prompted to select an option from the menu, and the corresponding function is called based on the user’s input.
+### 1. Displaying a Main Menu
+*   Display a welcome message to the user upon launching the application.
+*   Present the main menu with options for each feature, including “Add a New Expense,” “View Expenses,” “Edit an Expense,” “Delete an Expense,” “Summarize Expenses,” “Export Data to CSV,” “Set a Budget Limit,” and “Exit the Application.”
+
 
 ![Main Menu](/assets/images/main.png)
 
 ### 2. Adding a New Expense
-* Function: get_user_expense()
-	* Description: Prompts the user to enter the details of a new expense, including the date, category, description, and amount. Validates the input and creates an Expense object.
-	* Logic:
-	    * The user is asked to enter the date of the expense, which is then parsed and validated.
-	    * The user selects a category from a predefined list. The input is validated to ensure a valid category is chosen.
-	    * The user provides a description and the amount for the expense. The amount is validated to ensure it is a positive number.
-	    * An Expense object is created and returned.
+*	Prompt the user to enter the date, category, description, and amount for a new expense.
+*	Validate the input to ensure all details are entered correctly.
+*	Add the validated expense to the list of expenses.
+
 
 ![Add](/assets/images/add.png)
 
 ### 3. Viewing Expenses
-* Function: view_expenses(expenses)
-	* Description: Displays the list of all recorded expenses in a formatted manner.
-	* Logic:
-	    * Checks if there are any expenses to display.
-	    * Iterates through the list of expenses and prints each one with its details (date, category, description, and amount).
+*	Display a list of all recorded expenses with details including date, category, description, and amount.
+*	Handle cases where no expenses are recorded and notify the user accordingly.
 
 ![View](/assets/images/view.png)
 
 ### 4. Editing Expense
-* Function: edit_expense(expenses)
-	* Description: Allows the user to edit the details of an existing expense by selecting its number.
-	* Logic:
-	    * Checks if there are any expenses to edit.
-	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to edit.
-	    * Validates the input and allows the user to update the selected expense’s details.
+*	Allow the user to select an existing expense to edit from the list.
+*	Prompt the user to enter the new details for the selected expense.
+*	Update the expense with the new details upon validation.
 
 ![Edit](/assets/images/edit.png)
 
 ### 5. Deleting an Expense
-* Function: delete_expense(expenses)
-	* Description: Allows the user to delete an expense from the list by selecting its number.
-	* Logic:
-	    * Checks if there are any expenses to delete.
-	    * Displays the list of expenses and prompts the user to enter the number of the expense they wish to delete.
-	    * Validates the input and removes the selected expense from the list.
+*	Enable the user to select an existing expense to delete from the list.
+*	Remove the selected expense from the list after confirmation.
 
 ![Delete](/assets/images/delete.png)
 
 ### 6. Summarizing Expenses
-* Function: summarize_expenses(expenses, budget)
-* Description: Provides a summary of expenses by category and displays the total spending and remaining budget.
-	* Logic:
-	    * Checks if there are any expenses to summarize.
-	    * Uses a dictionary to calculate the total amount spent per category.
-	    * Prints the total amount spent in each category.
-	    * Calculates the total amount spent and the remaining budget, then displays these values.
+*	Provide a summary of expenses categorized by expense type (e.g., Housing, Utilities, Groceries, etc.).
+*	Calculate and display the total amount spent.
+*	Calculate and display the remaining budget based on the initial budget limit.
 
 ![Summarize](/assets/images/summarize.png)
 
-### 7. Exporting Data to CSV
-* Function: export_to_csv(expenses)
-	* Description: Exports the list of expenses to a CSV file for record-keeping or further analysis.
-	* Logic:
-	    * Prompts the user to confirm the export action.
-	    * Opens a CSV file for writing, using UTF-8 encoding.
-	    * Writes the headers and expense data to the CSV file.
-	    * Handles any file I/O errors gracefully.
+### 7. Export Data to CSV
+*	Export the list of expenses to a CSV file named expense_summary.csv.
+*	Include columns for Date, Category, Description, and Amount in the CSV file.
+*	Handle file-related errors and notify the user in case of any issues during the export process.
 
-![Export-yes](/assets/images/export.png)
+![Export-CSV](/assets/images/export.png)
 
-### 8. Handling User Input and Validation
-* Description: Throughout the application, user inputs are validated to ensure correctness and robustness.
-	* Logic:
-	    * Date inputs are validated using datetime.strptime.
-	    * Category selection is validated by checking if the selected index is within the range of available categories.
-	    * Description inputs are checked to ensure they are not empty.
-	    * Amount inputs are validated to ensure they are positive numbers.
+### 8. User-Friendly Interface
+*	Print informative and visually distinct messages for different actions (e.g., errors in red and titles in green).
+*	Display a main menu with options for each feature.
+*	Ensure all user inputs are validated and handle invalid inputs gracefully.
 
-### 9. Expense Class
-* Module: Expense
-* Class: Expense
-* Description: Represents an expense with attributes for date, category, 
-      description, and amount.
-    * Attributes:
-        * date: The date of the expense.
-        * category: The category of the expense (ex. Housing, Utilities).
-        * description: A brief description of the expense.
-        * amount: The amount spent in Euro. 
+### 9. Exit the Application
+*	Provide an option for the user to exit the application.
+*	Display a thank-you message upon exiting.
+
+![Exit](/assets/images/exit.png)
 
 ## Future Features 
 
