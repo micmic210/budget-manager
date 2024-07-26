@@ -240,16 +240,16 @@ Additionally, I ran the “PEP8 linter” provided by Code Institute and confirm
 ### Bugs Fixed
 
 1.	E501 - Line too long:
-	_How I fixed_: I broke long lines of code into multiple lines to ensure they are within the PEP 8 recommended limit of 79 characters per line. I used line continuation characters (backslash) or wrapped lines within parentheses for better readability.
+	* I broke long lines of code into multiple lines to ensure they are within the PEP 8 recommended limit of 79 characters per line. I used line continuation characters (backslash) or wrapped lines within parentheses for better readability.
 
 2.	E211 - Whitespace before:
-	_How I fixed_: I removed any unnecessary whitespace before parentheses, brackets, or other punctuation. I ensured there was no space between a function name and the opening parenthesis when calling the function.
+	* I removed any unnecessary whitespace before parentheses, brackets, or other punctuation. I ensured there was no space between a function name and the opening parenthesis when calling the function.
 
 3.	E302 - Too many blank lines:
-	_How I fixed_: I ensured there were no more than two blank lines separating top-level functions and class definitions. I maintained a single blank line between methods within a class.
+	* I ensured there were no more than two blank lines separating top-level functions and class definitions. I maintained a single blank line between methods within a class.
 
 4.	F821 - Undefined name:
-	_How I fixed_: I made sure all variables and functions were defined before they were used. I checked for typos or missing imports that could cause names to be undefined.
+	* I made sure all variables and functions were defined before they were used. I checked for typos or missing imports that could cause names to be undefined.
 
 
 ## Credits
