@@ -16,4 +16,3 @@ class Expense:
             f"{self.date}, {self.category}, {self.description}, "
             f"€{self.amount:.2f}"
         )
-
