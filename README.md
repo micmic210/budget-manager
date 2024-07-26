@@ -1,5 +1,5 @@
 # Budget Manager
-![Budget Manager Header](/assets/images/main.png)
+![Budget Manager Header](/assets/images/mock.png)
 
 ## Introduction
 
