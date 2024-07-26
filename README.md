@@ -234,6 +234,9 @@ For automatic tests, I used the following tools:
 
 3.	Pylint: A static code analysis tool that catches errors, enforces coding standards, and suggests refactoring to maintain high code quality.
 
+Additionally, I ran the “PEP8 linter” provided by Code Institute and confirmed that there were no issues.
+
+
 ### Bugs Fixed
 
 1.	E501 - Line too long:
