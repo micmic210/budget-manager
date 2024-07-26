@@ -10,6 +10,10 @@ class Expense:
 
     def __repr__(self):
         """
-        Returns a string representation of the expense. 
+        Returns a string representation of the expense.
         """
-        return f"{self.date}, {self.category}, {self.description}, €{self.amount:.2f}"
+        return (
+            f"{self.date}, {self.category}, {self.description}, "
+            f"€{self.amount:.2f}"
+        )
+
